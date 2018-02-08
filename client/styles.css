@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    display:flex;
+    flex-wrap: wrap;
+    min-width: 350px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+.section {
+    width: 100%;
+    min-width: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+.transition {
+    transition: 0.5s ease-in-out all;
+}
+
+/*///////////////
+// Header
+///////////////////////////////////////////////////////////////////////////////*/
+
+.menu-container {
+    background-color: #5599dd88;
+    padding: 3vh;    
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    width: 92%;    
+    justify-content: space-between;
+}
+
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    font-size: 1.2em;
+    margin: 20px 20px 20px 0;
+}
+
+.menu-item:hover {
+    color: #ceeeff;
+}
+
+.menu-item:active {
+    color: #bdddee;
+}
+
+.first-item {
+    margin-left: auto;
+}
+
+.icon {
+    position: relative;    
+}
+
+.icon a {
+    position: absolute;
+    left: 20px;
+}
+
+.fade {
+    position: fixed;
+    top: 0;
+    margin-top: -30vh;
+    background-color: #5599dd00;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #5599dd88;
+}
+
+.topSlide + .section {
+    transition: padding-top 0.6s ease-out;
+    padding-top: 110px;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*///////////////
+// Content
+///////////////////////////////////////////////////////////////////////////////*/
+
+.content {
+    max-width: 700px;
+    width: 93%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content article {
+    color: #6c6c7c;
+    background-color: rgba(85, 153, 221, 0.11);
+    padding: 6vw;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.content article h1,
+.content article h2 {    
+    margin: 1vh 0 3vh 0;
+    color: #b0b7b9;
+}
+
+.content article p {
+    font-size: 1em;
+    line-height: 1.9em;
+    margin-bottom: 3em;
+}
+.content article h1 { font-size: 2em; }
+.content article h2 { font-size: 1.6em; }
+
+/*///////////////
+// Footer
+///////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen and (min-width: 900px) {
+    .content article {
+        padding: 5vw;
+    }
+} 
+@media screen and (max-width: 600px) {
+    #Nav a:not(:first-child) { display: none; }
+    #Nav a.icon {
+        float: right;
+        display: block;                
+    }
+    #Nav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #Nav a:first-child { 
+        position: absolute; 
+    }
+    #Nav {
+        display: block;
+        position: relative;
+    }
+    #Nav.responsive a:nth-child(2) {
+        margin-top: 12vh;
+    }
+    #Nav.responsive a:not(:first-child):not(.icon) {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+@media screen and (min-width: 600px) {
+    #Nav a.icon {
+        display: none;
+    }
+}
