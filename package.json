@@ -1,0 +1,35 @@
+{
+  "name": "template-react",
+  "version": "1.0.0",
+  "description": "React template for a content based web-page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --watch",
+    "serve": "node ./app.js",
+    "start": "concurrently \"npm run watch\" \"npm run serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianUdden/template-react.git"
+  },
+  "author": "Sebastian Udden <sebastian.udden@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SebastianUdden/template-react/issues"
+  },
+  "homepage": "https://github.com/SebastianUdden/template-react#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "concurrently": "^3.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.10.0"
+  }
+}
