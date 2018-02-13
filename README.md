@@ -1,4 +1,4 @@
-# Template
+# Template-React
 
 React template for a content based web-page
 
