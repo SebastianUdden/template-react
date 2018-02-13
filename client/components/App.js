@@ -1,14 +1,18 @@
 import React from 'react';
+import Page from './page/Page.jsx';
 
 export default class App extends React.Component {
     render() {
-        let author = {
-            name: 'Sebastian'
-        };
         return(
             <div>
-                <h1>{author.name}</h1>
+                <Page />
             </div>
         );
     }
 }
+
+// ,
+//     "plugins": [
+//         "babel-plugin-transform-class-properties"
+//     ]
+//     ["es2016"], 
