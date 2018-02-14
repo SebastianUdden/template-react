@@ -10,9 +10,3 @@ export default class App extends React.Component {
         );
     }
 }
-
-// ,
-//     "plugins": [
-//         "babel-plugin-transform-class-properties"
-//     ]
-//     ["es2016"], 

@@ -5,7 +5,7 @@ module.exports = {
   entry: ['./client/index.js'],
   output: {
     path: __dirname,
-    filename: 'public/bundle.js'
+    filename: 'docs/bundle.js'
   },
   module: {
     loaders: [
@@ -27,7 +27,7 @@ module.exports = {
       // ./public directory is being served
       host: 'localhost',
       port: 3000,
-      server: { baseDir: ['public'] }
+      server: { baseDir: ['docs'] }
     })
   ]
 };
