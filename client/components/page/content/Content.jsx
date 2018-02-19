@@ -1,6 +1,7 @@
 import React from 'react';
 import Articles from './articles/Articles.jsx';
 import styles from './content-styles';
+import PromisesDemo from '../promises-demo/PromisesDemo.jsx';
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -9,8 +10,8 @@ export default class Content extends React.Component {
 
     render() {        
         return (
-            <section style={styles.section}>                                    
-                <div style={styles.content}>                                        
+            <section style={styles.section}>   
+                <div style={styles.content}>   
                     <Articles articles={this.props.content.articles} />
                 </div>
             </section>

@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './article-styles';
+import PromisesDemo from '../../../promises-demo/PromisesDemo.jsx';
+import AsyncAwaitDemo from '../../../async-await-demo/AsyncAwaitDemo.jsx';
 
 export default class Article extends React.Component {
     constructor(props) {
@@ -32,7 +34,11 @@ export default class Article extends React.Component {
         let count = 1;
         let paragraphs = this.props.paragraphs;     
         let paragraphItems = paragraphs.map((paragraph) =>
-            <p key={this.props.header + count++} style={styles.p}>{paragraph}</p>
+            <div key={this.props.header + count++}>
+                <p style={styles.p}>{paragraph}</p>
+                {this.props.header === 'Promises' ? <PromisesDemo /> : ''}
+                {this.props.header === 'Async/Await' ? <AsyncAwaitDemo /> : ''}
+            </div>
         );
         return (
             <article style={{...styles.article, padding: this.state.padding}}>
