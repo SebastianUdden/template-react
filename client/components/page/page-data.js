@@ -13,6 +13,11 @@ export default {
             logo: false
         },
         { 
+            id: 'REST-API',
+            firstRightAligned: false,
+            logo: false
+        },
+        { 
             id: 'About',
             firstRightAligned: false,
             logo: false
@@ -46,6 +51,12 @@ export default {
                 header: 'Promises',
                 paragraphs: [
                     "A display of promises, async calls and use of this-keyword."
+                ]
+            },
+            {
+                header: 'REST-API',
+                paragraphs: [
+                    "A display of connection to a REST-API, using async calls."
                 ]
             },
             {
