@@ -22,7 +22,7 @@ export default class Header extends React.Component {
     }
 
     componentDidMount() {
-        let mediaQueryList = window.matchMedia("(max-width: 600px)");
+        var mediaQueryList = window.matchMedia("(max-width: 600px)");
         mediaQueryList.addListener(this.handleScreenWidthChange);
         this.handleScreenWidthChange(mediaQueryList);
 

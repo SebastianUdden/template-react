@@ -20062,15 +20062,15 @@ var _Content = __webpack_require__(111);
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Footer = __webpack_require__(120);
+var _Footer = __webpack_require__(121);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _pageStyles = __webpack_require__(123);
+var _pageStyles = __webpack_require__(124);
 
 var _pageStyles2 = _interopRequireDefault(_pageStyles);
 
-var _pageData = __webpack_require__(124);
+var _pageData = __webpack_require__(125);
 
 var _pageData2 = _interopRequireDefault(_pageData);
 
@@ -24922,7 +24922,7 @@ var _Articles = __webpack_require__(112);
 
 var _Articles2 = _interopRequireDefault(_Articles);
 
-var _contentStyles = __webpack_require__(119);
+var _contentStyles = __webpack_require__(120);
 
 var _contentStyles2 = _interopRequireDefault(_contentStyles);
 
@@ -25055,7 +25055,7 @@ var _RestApiDemo = __webpack_require__(116);
 
 var _RestApiDemo2 = _interopRequireDefault(_RestApiDemo);
 
-var _AsyncAwaitDemo = __webpack_require__(117);
+var _AsyncAwaitDemo = __webpack_require__(118);
 
 var _AsyncAwaitDemo2 = _interopRequireDefault(_AsyncAwaitDemo);
 
@@ -25232,7 +25232,7 @@ var _radium = __webpack_require__(4);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _restApiDemoStyles = __webpack_require__(125);
+var _restApiDemoStyles = __webpack_require__(117);
 
 var _restApiDemoStyles2 = _interopRequireDefault(_restApiDemoStyles);
 
@@ -25427,6 +25427,46 @@ exports.default = (0, _radium2.default)(RestApiDemo);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = {
+    container: {
+        width: '100%'
+    },
+    button: {
+        userSelect: 'none',
+        width: '100%',
+        fontSize: '1.2em',
+        padding: '30px',
+        backgroundColor: '#5599ddbb',
+        color: '#eee',
+        border: '1px solid #eee',
+        ':hover': {
+            backgroundColor: '#5599dd99'
+        },
+        ':active': {
+            backgroundColor: '#5599dddd'
+        }
+    },
+    displayText: {
+        textAlign: 'center',
+        padding: '20px',
+        backgroundColor: '#5599dddd',
+        color: '#eee'
+    },
+    noData: {
+        display: 'none'
+    }
+};
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -25438,7 +25478,7 @@ var _radium = __webpack_require__(4);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _asyncAwaitDemoStyles = __webpack_require__(118);
+var _asyncAwaitDemoStyles = __webpack_require__(119);
 
 var _asyncAwaitDemoStyles2 = _interopRequireDefault(_asyncAwaitDemoStyles);
 
@@ -25549,7 +25589,7 @@ var AsyncAwaitDemo = function (_React$Component) {
 exports.default = (0, _radium2.default)(AsyncAwaitDemo);
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25586,7 +25626,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25615,7 +25655,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25635,11 +25675,11 @@ var _NavButton = __webpack_require__(25);
 
 var _NavButton2 = _interopRequireDefault(_NavButton);
 
-var _NavExternal = __webpack_require__(121);
+var _NavExternal = __webpack_require__(122);
 
 var _NavExternal2 = _interopRequireDefault(_NavExternal);
 
-var _footerStyles = __webpack_require__(122);
+var _footerStyles = __webpack_require__(123);
 
 var _footerStyles2 = _interopRequireDefault(_footerStyles);
 
@@ -25707,7 +25747,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25774,7 +25814,7 @@ var NavExternal = function (_React$Component) {
 exports.default = (0, _radium2.default)(NavExternal);
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25800,7 +25840,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25820,7 +25860,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25891,46 +25931,6 @@ exports.default = {
     externalRef: {
         name: 'Sebastian Uddén',
         uri: 'https://github.com/SebastianUdden'
-    }
-};
-
-/***/ }),
-/* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    container: {
-        width: '100%'
-    },
-    button: {
-        userSelect: 'none',
-        width: '100%',
-        fontSize: '1.2em',
-        padding: '30px',
-        backgroundColor: '#5599ddbb',
-        color: '#eee',
-        border: '1px solid #eee',
-        ':hover': {
-            backgroundColor: '#5599dd99'
-        },
-        ':active': {
-            backgroundColor: '#5599dddd'
-        }
-    },
-    displayText: {
-        textAlign: 'center',
-        padding: '20px',
-        backgroundColor: '#5599dddd',
-        color: '#eee'
-    },
-    noData: {
-        display: 'none'
     }
 };
 
