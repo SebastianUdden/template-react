@@ -1,0 +1,6 @@
+::placeholder {
+    opacity: 3;
+    transition: opacity 0.35s ease-in-out;
+    -moz-transition: opacity 0.35s ease-in-out;
+    -webkit-transition: opacity 0.35s ease-in-out;
+}

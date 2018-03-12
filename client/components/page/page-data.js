@@ -27,6 +27,11 @@ export default {
             firstRightAligned: false,
             logo: false
         },
+        {
+            id: 'TextBox',
+            firstRightAligned: false,
+            logo: false
+        },
         { 
             id: 'Contact',
             firstRightAligned: false,
@@ -39,7 +44,7 @@ export default {
                 header: 'Home',
                 paragraphs: [
                     "Lorem ipsum dolor amet ennui hexagon sartorial williamsburg +1. Offal pour-over bespoke sustainable biodiesel. Tumblr YOLO 8-bit vegan messenger bag. Pug umami tumblr live-edge celiac salvia. Beard sustainable umami hoodie hashtag migas scenester 3 wolf moon fam chicharrones kogi readymade tattooed. Fashion axe try-hard helvetica truffaut, pop-up hammock franzen celiac tattooed.",
-                    "Marfa pitchfork mixtape fam fashion axe. +1 actually shaman, pinterest cornhole fam sriracha asymmetrical. Slow-carb unicorn tattooed marfa swag pour-over. Taxidermy DIY 8-bit brooklyn seitan before they sold out. Gochujang cray fanny pack flannel, ethical kickstarter tumblr lo-fi taxidermy snackwave keytar kinfolk vegan vice.",
+                    "Alex var här! mixtape fam fashion axe. +1 actually shaman, pinterest cornhole fam sriracha asymmetrical. Slow-carb unicorn tattooed marfa swag pour-over. Taxidermy DIY 8-bit brooklyn seitan before they sold out. Gochujang cray fanny pack flannel, ethical kickstarter tumblr lo-fi taxidermy snackwave keytar kinfolk vegan vice.",
                     "Paleo semiotics green juice flannel salvia keffiyeh austin migas man braid bushwick. Palo santo master cleanse banh mi chillwave unicorn subway tile williamsburg. Retro biodiesel migas hexagon blog palo santo flexitarian ennui salvia artisan wayfarers cray hoodie flannel. Cornhole 3 wolf moon vegan, you probably haven't heard of them etsy celiac neutra gluten-free roof party bitters knausgaard portland.",
                     "Disrupt hella slow-carb polaroid listicle meditation squid chia, blog man bun keffiyeh kitsch narwhal. Messenger bag food truck raclette tousled sriracha yuccie, irony coloring book copper mug pitchfork migas woke. Selvage master cleanse cold-pressed copper mug lumbersexual, schlitz letterpress PBR&B man bun iPhone cray 90's yuccie hexagon vape. Sustainable offal next level bespoke kale chips chambray chillwave. Chicharrones godard austin seitan jean shorts banh mi, ethical air plant. Snackwave trust fund godard distillery etsy.",
                     "Tumblr pok pok etsy, tacos single-origin coffee scenester locavore knausgaard retro selfies gochujang brunch. Helvetica ugh blog tattooed put a bird on it everyday carry asymmetrical truffaut locavore retro drinking vinegar ramps. Forage artisan direct trade narwhal semiotics. Man bun bitters you probably haven't heard of them, drinking vinegar slow-carb yuccie typewriter chartreuse vape poutine heirloom brooklyn sustainable. Meh flannel snackwave, asymmetrical taxidermy dreamcatcher post-ironic authentic ugh echo park kombucha hoodie. PBR&B vexillologist glossier squid cred irony wolf beard. Fixie single-origin coffee vice succulents actually whatever tofu raw denim swag squid viral health goth YOLO photo booth kombucha.",
@@ -63,6 +68,12 @@ export default {
                 header: 'Async/Await',
                 paragraphs: [
                     "A display of async/await and babel -> ES7."
+                ]
+            },
+            {
+                header: 'TextBox',
+                paragraphs: [
+                    "A dynamic textbox"
                 ]
             },
             {
