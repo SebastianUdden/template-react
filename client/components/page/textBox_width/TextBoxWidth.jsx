@@ -14,9 +14,10 @@ class TextBox_width extends React.Component {
         var span = document.getElementById("hide_span");
         var txtBoxWidth = txtBox.getBoundingClientRect().width;
 
-
         function changeWidth(el, hideEl, maxWidth,
         fontSizeFromtxtBox,horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
+
+            //TODO måste lägga in setTimeout()!
 
             //ALT2.
             hideEl.textContent = el.value;

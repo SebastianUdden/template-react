@@ -25684,6 +25684,8 @@ var TextBox_width = function (_React$Component) {
 
             function changeWidth(el, hideEl, maxWidth, fontSizeFromtxtBox, horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
 
+                //TODO måste lägga in setTimeout()!
+
                 //ALT2.
                 hideEl.textContent = el.value;
                 hideEl.style.fontSize = fontSizeFromtxtBox + "em";
