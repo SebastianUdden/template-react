@@ -10,59 +10,63 @@ class TextBox_width extends React.Component {
 
     componentDidMount() {
 
-        //you will need it so that you dont overstep the textbox width
-        // added -10 so the textbox dosnt go exactly to the div´s side 
-        var max_width = document.getElementById("outerDiv").getBoundingClientRect().width - 10;
-        //TODO -> Jag måste fånga upp div:en för articel...???
-        var el = document.getElementById("txt_box");
-        var hide_el = document.getElementById("hide_span");
+        var txtBox = document.getElementById("txt_box");
+        var span = document.getElementById("hide_span");
+        var txtBoxWidth = txtBox.getBoundingClientRect().width;
 
-        var standardWidth = el.getBoundingClientRect().width;
 
-        function changeWidth(el) {
-            hide_el.style.display = "inline"; //inline is defualt for the display function in CSS
-            //textContent supports from IE 9, works on major browsers
-            hide_el.textContent = el.value;
-            var txt_box_width = hide_el.getBoundingClientRect().width;
-            hide_el.style.display = "none";
+        function changeWidth(el, hideEl, maxWidth,
+        fontSizeFromtxtBox,horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
 
-            //As long as the textbox (ex txt_box) width is smaller than the standardWidth
-            //use this to not decrease the textbox width
-            if (standardWidth > txt_box_width) {
-                el.style.width = standardWidth + "px";
+            //ALT2.
+            hideEl.textContent = el.value;
+            hideEl.style.fontSize = fontSizeFromtxtBox + "em";
+            hideEl.style.border = borderSizeFromtxtBox + "px";
+            var spanWidth = hideEl.getBoundingClientRect().width;
+            spanWidth += horizontalpaddingFromtxBox*2;
+            //hideEl.style.padding = horizontalpaddingFromtxBox + "px"; //FUNKAR INTE MED PADDING..
+
+            console.log("spanWidth:" + spanWidth);
+            console.log("txtBoxWidth" + txtBoxWidth)
+
+            if(spanWidth > txtBoxWidth && spanWidth < maxWidth)
+            {
+                el.style.width = spanWidth + "px";
             }
-            //Increase the width for the textBox (ex txt_box) if the width
-            //is bigger than the standard width
-            else {
-                //As long as textbox width doesn't increases more than max width,
-                //increase the width for the textbox (ex txt_box)
-                if (max_width > txt_box_width) {
-                    //I add 23  + 3 becuase i need to take in account with the 
-                    //padding left/right for the svg/ thats inside the textbox
-                    el.style.width = (txt_box_width + 23 + 3) + "px";
-
-                    if (max_width < (txt_box_width + 23 + 3)) {
-                        //Annars kommer du utanför några gånger! (under test!) 
-                        el.style.width = max_width + "px";
-                    }
-                }
-                //if the textbox width is bigger than the max set as defualt the max width
-                //ex: If the user is pressing down a key without releasing it since its triggered by "key up"
-                else {
-                    el.style.width = max_width + "px";
-                }
+            else if (spanWidth < txtBoxWidth)
+            {
+                el.style.width = txtBoxWidth + "px";
             }
+
+            //ALT1.            
+            // console.log("txtBoxWidth: " + txtBoxWidth);
+            // hideEl.textContent = el.value;
+            // var spanWidth = hideEl.getBoundingClientRect().width;
+            // spanWidth += 60;
+            //     console.log("spanWidth: " + spanWidth);
+            //     if (maxWidth < spanWidth) {
+            //         el.style.width = maxWidth + "px";
+            //     }
+            //     else if(txtBoxWidth < spanWidth) {
+            //         el.style.width = (spanWidth) + "px";
+            //         if (maxWidth < (spanWidth)) {
+            //             el.style.width = maxWidth + "px";
+            //         }
+            //     } else {
+            //         console.log("else!");
+            //         el.style.width = txtBoxWidth;
+            //         console.log("txtBoxWidth: " + txtBoxWidth);
+            //     }
         }
 
         //From DOM lever 2
         //You need to use keyup or else it will not "read" the letters correct.
-        if (el.addEventListener) {
-            el.addEventListener("keyup", function (e) { changeWidth(el) }, false);
+        if (txtBox.addEventListener) {
+            txtBox.addEventListener("keyup", function (e) { changeWidth(txtBox, span, 650, 1.2,30,1) }, false);
         } else {
             // For IE 5- 8
-            el.attachEvent("keyup", function (e) { changeWidth(el) });
+            txtBox.attachEvent("keyup", function (e) { changeWidth(txtBox, span, 650, 1.2,30,1) });
         }
-
     }
 
     render() {
@@ -70,6 +74,7 @@ class TextBox_width extends React.Component {
             <div style={styles.container} id="outerDiv">
                 <span id="hide_span"></span>
                 <input type="text" id="txt_box" style={styles.textBox} placeholder="Try me out!" />
+                <input type="text" styles={styles.testInput} placeholder="Try me out!" />
             </div>
         );
     }

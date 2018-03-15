@@ -3,6 +3,7 @@ import styles from './article-styles';
 import PromisesDemo from '../../../promises-demo/PromisesDemo.jsx';
 import RestApiDemo from '../../../rest-api-demo/RestApiDemo.jsx';
 import AsyncAwaitDemo from '../../../async-await-demo/AsyncAwaitDemo.jsx';
+import TextBox from '../../../textBox_width/TextBoxWidth.jsx';
 
 export default class Article extends React.Component {
     constructor(props) {
@@ -40,6 +41,7 @@ export default class Article extends React.Component {
                 {this.props.header === 'Promises' ? <PromisesDemo /> : ''}
                 {this.props.header === 'REST-API' ? <RestApiDemo /> : ''}
                 {this.props.header === 'Async/Await' ? <AsyncAwaitDemo /> : ''}
+                {this.props.header === 'TextBox' ? <TextBox /> : ''}
             </div>
         );
         return (

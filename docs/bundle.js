@@ -25059,6 +25059,10 @@ var _AsyncAwaitDemo = __webpack_require__(118);
 
 var _AsyncAwaitDemo2 = _interopRequireDefault(_AsyncAwaitDemo);
 
+var _TextBoxWidth = __webpack_require__(120);
+
+var _TextBoxWidth2 = _interopRequireDefault(_TextBoxWidth);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25119,7 +25123,8 @@ var Article = function (_React$Component) {
                     ),
                     _this2.props.header === 'Promises' ? _react2.default.createElement(_PromisesDemo2.default, null) : '',
                     _this2.props.header === 'REST-API' ? _react2.default.createElement(_RestApiDemo2.default, null) : '',
-                    _this2.props.header === 'Async/Await' ? _react2.default.createElement(_AsyncAwaitDemo2.default, null) : ''
+                    _this2.props.header === 'Async/Await' ? _react2.default.createElement(_AsyncAwaitDemo2.default, null) : '',
+                    _this2.props.header === 'TextBox' ? _react2.default.createElement(_TextBoxWidth2.default, null) : ''
                 );
             });
             return _react2.default.createElement(
@@ -25626,8 +25631,163 @@ exports.default = {
 };
 
 /***/ }),
-/* 120 */,
-/* 121 */,
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _radium = __webpack_require__(4);
+
+var _radium2 = _interopRequireDefault(_radium);
+
+var _textBox_widthStyle = __webpack_require__(121);
+
+var _textBox_widthStyle2 = _interopRequireDefault(_textBox_widthStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import haha from './textBox_width.css';
+
+var TextBox_width = function (_React$Component) {
+    _inherits(TextBox_width, _React$Component);
+
+    function TextBox_width(props) {
+        _classCallCheck(this, TextBox_width);
+
+        return _possibleConstructorReturn(this, (TextBox_width.__proto__ || Object.getPrototypeOf(TextBox_width)).call(this, props));
+    }
+
+    _createClass(TextBox_width, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+
+            var txtBox = document.getElementById("txt_box");
+            var span = document.getElementById("hide_span");
+            var txtBoxWidth = txtBox.getBoundingClientRect().width;
+
+            function changeWidth(el, hideEl, maxWidth, fontSizeFromtxtBox, horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
+
+                //ALT2.
+                hideEl.textContent = el.value;
+                hideEl.style.fontSize = fontSizeFromtxtBox + "em";
+                hideEl.style.border = borderSizeFromtxtBox + "px";
+                var spanWidth = hideEl.getBoundingClientRect().width;
+                spanWidth += horizontalpaddingFromtxBox * 2;
+                //hideEl.style.padding = horizontalpaddingFromtxBox + "px"; //FUNKAR INTE MED PADDING..
+
+                console.log("spanWidth:" + spanWidth);
+                console.log("txtBoxWidth" + txtBoxWidth);
+
+                if (spanWidth > txtBoxWidth && spanWidth < maxWidth) {
+                    el.style.width = spanWidth + "px";
+                } else if (spanWidth < txtBoxWidth) {
+                    el.style.width = txtBoxWidth + "px";
+                }
+
+                //ALT1.            
+                // console.log("txtBoxWidth: " + txtBoxWidth);
+                // hideEl.textContent = el.value;
+                // var spanWidth = hideEl.getBoundingClientRect().width;
+                // spanWidth += 60;
+                //     console.log("spanWidth: " + spanWidth);
+                //     if (maxWidth < spanWidth) {
+                //         el.style.width = maxWidth + "px";
+                //     }
+                //     else if(txtBoxWidth < spanWidth) {
+                //         el.style.width = (spanWidth) + "px";
+                //         if (maxWidth < (spanWidth)) {
+                //             el.style.width = maxWidth + "px";
+                //         }
+                //     } else {
+                //         console.log("else!");
+                //         el.style.width = txtBoxWidth;
+                //         console.log("txtBoxWidth: " + txtBoxWidth);
+                //     }
+            }
+
+            //From DOM lever 2
+            //You need to use keyup or else it will not "read" the letters correct.
+            if (txtBox.addEventListener) {
+                txtBox.addEventListener("keyup", function (e) {
+                    changeWidth(txtBox, span, 650, 1.2, 30, 1);
+                }, false);
+            } else {
+                // For IE 5- 8
+                txtBox.attachEvent("keyup", function (e) {
+                    changeWidth(txtBox, span, 650, 1.2, 30, 1);
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { style: _textBox_widthStyle2.default.container, id: 'outerDiv' },
+                _react2.default.createElement('span', { id: 'hide_span' }),
+                _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
+                _react2.default.createElement('input', { type: 'text', styles: _textBox_widthStyle2.default.testInput, placeholder: 'Try me out!' })
+            );
+        }
+    }]);
+
+    return TextBox_width;
+}(_react2.default.Component);
+
+exports.default = (0, _radium2.default)(TextBox_width);
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    container: {
+        width: '100%',
+        border: '1px solid red'
+    },
+    textBox: {
+        width: '50%',
+        maxWidth: '100%',
+        'display': 'flex',
+        userSelect: 'none',
+        fontSize: '1.2em',
+        padding: '30px',
+        // backgroundColor: '#5599ddbb',
+        color: '#b0b7b9',
+        border: '1px solid #eee',
+        '::-webkit-input-placeholder': {
+            color: 'red'
+        }
+    },
+    testInput: {
+        // width: '100%',
+    }
+};
+
+/***/ }),
 /* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 

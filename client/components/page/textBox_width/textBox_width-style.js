@@ -1,9 +1,11 @@
 export default {
     container: {
-        width: '100%'
+        width: '100%',
+        border: '1px solid red',
     },
     textBox: {
         width: '50%',
+        maxWidth: '100%',
         'display': 'flex',
         userSelect: 'none',
         fontSize: '1.2em',
@@ -14,5 +16,8 @@ export default {
         '::-webkit-input-placeholder': {
            color: 'red',
         }
+    },
+    testInput: {
+        // width: '100%',
     }
 }
