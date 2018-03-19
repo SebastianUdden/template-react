@@ -3,6 +3,8 @@ import Radium from 'radium';
 import styles from './textBox_width-style';
 //import haha from './textBox_width.css';
 
+import Sign from '../../sign/Sign.jsx';
+
 class TextBox_width extends React.Component {
     constructor(props) {
         super(props);
@@ -73,6 +75,10 @@ class TextBox_width extends React.Component {
     render() {
         return (
             <div style={styles.container} id="outerDiv">
+                <Sign type="info" text="This will soon be finished"/>
+                <Sign type="success" text="It's looking really good!"/>
+                <Sign type="warning" text="Under Construction"/>
+                <Sign type="error" text="Too much commented code!"/>
                 <span id="hide_span"></span>
                 <input type="text" id="txt_box" style={styles.textBox} placeholder="Try me out!" />
                 <input type="text" styles={styles.testInput} placeholder="Try me out!" />
