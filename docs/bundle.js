@@ -25659,6 +25659,10 @@ var _Sign = __webpack_require__(122);
 
 var _Sign2 = _interopRequireDefault(_Sign);
 
+var _SignModal = __webpack_require__(130);
+
+var _SignModal2 = _interopRequireDefault(_SignModal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25750,6 +25754,7 @@ var TextBox_width = function (_React$Component) {
                 _react2.default.createElement(_Sign2.default, { type: 'success', text: 'It\'s looking really good!' }),
                 _react2.default.createElement(_Sign2.default, { type: 'warning', text: 'Under Construction' }),
                 _react2.default.createElement(_Sign2.default, { type: 'error', text: 'Too much commented code!' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Hi!', text: 'This is dangerous, try clicking on the X.' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
                 _react2.default.createElement('input', { type: 'text', styles: _textBox_widthStyle2.default.testInput, placeholder: 'Try me out!' })
@@ -26233,6 +26238,221 @@ exports.default = {
     externalRef: {
         name: 'Sebastian Uddén',
         uri: 'https://github.com/SebastianUdden'
+    }
+};
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _radium = __webpack_require__(4);
+
+var _radium2 = _interopRequireDefault(_radium);
+
+var _signModalStyle = __webpack_require__(131);
+
+var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignModal = function (_React$Component) {
+    _inherits(SignModal, _React$Component);
+
+    function SignModal(props) {
+        _classCallCheck(this, SignModal);
+
+        var _this = _possibleConstructorReturn(this, (SignModal.__proto__ || Object.getPrototypeOf(SignModal)).call(this, props));
+
+        _this.state = {
+            display: 'none'
+        };
+        return _this;
+    }
+
+    _createClass(SignModal, [{
+        key: 'openModal',
+        value: function openModal() {
+            this.setState({ display: 'block' });
+        }
+    }, {
+        key: 'closeModal',
+        value: function closeModal() {
+            this.setState({ display: 'none' });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { style: _signModalStyle2.default.container },
+                _react2.default.createElement(
+                    'button',
+                    { id: 'myBtn', style: _signModalStyle2.default.button, onClick: function onClick() {
+                            return _this2.openModal();
+                        } },
+                    'Open Modal'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'myModal', style: _extends({}, _signModalStyle2.default.body, { display: this.state.display }) },
+                    _react2.default.createElement(
+                        'div',
+                        { style: _extends({}, _signModalStyle2.default.content, _signModalStyle2.default[this.props.type]) },
+                        _react2.default.createElement(
+                            'span',
+                            { style: _signModalStyle2.default.close, onClick: function onClick() {
+                                    return _this2.closeModal();
+                                } },
+                            '\xD7'
+                        ),
+                        _react2.default.createElement(
+                            'h2',
+                            { style: _signModalStyle2.default.header },
+                            this.props.type === 'info' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\uD83D\uDEC8'
+                            ) : '',
+                            this.props.type === 'success' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u2713'
+                            ) : '',
+                            this.props.type === 'warning' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u26A0'
+                            ) : '',
+                            this.props.type === 'error' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\xD7'
+                            ) : '',
+                            this.props.header
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { style: _signModalStyle2.default.text },
+                            this.props.text
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SignModal;
+}(_react2.default.Component);
+
+exports.default = (0, _radium2.default)(SignModal);
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = {
+    container: {
+        backroundColor: 'Red',
+        width: '500px'
+    },
+    button: {
+        padding: '8px',
+        margin: '5px',
+        borderRadius: '4px'
+    },
+    /* The Modal (background) */
+    body: _defineProperty({
+        display: 'block', /* Hidden by default */
+        position: 'fixed', /* Stay in place */
+        zIndex: 1, /* Sit on top */
+        left: 0,
+        top: 0,
+        width: '100%', /* Full width */
+        height: '100%', /* Full height */
+        overflow: 'auto', /* Enable scroll if needed */
+        backgroundColor: 'rgb(0,0,0)' }, 'backgroundColor', 'rgba(0,0,0,0.4)'),
+    /* Modal Content/Box */
+    content: {
+        backgroundColor: '#fefefe',
+        margin: '15% auto', /* 15% from the top and centered */
+        padding: '20px',
+        border: '1px solid #888',
+        width: '80%' /* Could be more or less, depending on screen size */
+    },
+    header: {
+        fontSize: '44px',
+        marginBottom: '8px'
+    },
+    text: {
+        fontSize: '18px'
+    },
+    /* The Close Button */
+    close: {
+        color: '#aaa',
+        float: 'right',
+        fontSize: '28px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        ':focus': {
+            color: 'black',
+            textDecoration: 'none'
+        },
+        ':hover': {
+            color: 'black',
+            textDecoration: 'none'
+        }
+    },
+    info: {
+        backgroundColor: '#BDE5F8',
+        color: '#00529B'
+    },
+    success: {
+        backgroundColor: '#DFF2BF',
+        color: '#4F8A10'
+    },
+    warning: {
+        backgroundColor: '#FEEFB3',
+        color: '#9F6000'
+    },
+    error: {
+        backgroundColor: '#FFBABA',
+        color: '#D8000C'
+    },
+    icon: {
+        fontSize: '1.3em',
+        padding: '0 7px'
     }
 };
 
