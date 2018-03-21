@@ -9,15 +9,14 @@ class TextBox_width extends React.Component {
     }
 
     componentDidMount() {
+        var delayTimer;
 
         var txtBox = document.getElementById("txt_box");
         var span = document.getElementById("hide_span");
         var txtBoxWidth = txtBox.getBoundingClientRect().width;
-
-        function changeWidth(el, hideEl, maxWidth,
+        
+       function changeWidth(el, hideEl, maxWidth,
         fontSizeFromtxtBox,horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
-
-            //TODO måste lägga in setTimeout()!
 
             //ALT2.
             hideEl.textContent = el.value;
@@ -59,6 +58,9 @@ class TextBox_width extends React.Component {
             //         console.log("txtBoxWidth: " + txtBoxWidth);
             //     }
         }
+
+        // clearTimeout(delayTimer);
+        // delayTimer = setTimeout(test,200);
 
         //From DOM lever 2
         //You need to use keyup or else it will not "read" the letters correct.
