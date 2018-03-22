@@ -4,6 +4,7 @@ import styles from './textBox_width-style';
 //import haha from './textBox_width.css';
 
 import Sign from '../../sign/Sign.jsx';
+import SignModal from '../../sign-modal/SignModal.jsx';
 
 class TextBox_width extends React.Component {
     constructor(props) {
@@ -77,10 +78,13 @@ class TextBox_width extends React.Component {
     render() {
         return (
             <div style={styles.container} id="outerDiv">
-                <Sign type="info" text="This will soon be finished"/>
-                <Sign type="success" text="It's looking really good!"/>
-                <Sign type="warning" text="Under Construction"/>
-                <Sign type="error" text="Too much commented code!"/>
+                <Sign type="info" text="This will soon be finished" />
+                <Sign type="success" text="It's looking really good!" />
+                <Sign type="warning" text="Under Construction" />
+                <Sign type="error" text="Too much commented code!" />
+
+                <SignModal type="error" header="Hi!" text="This is dangerous, try clicking on the X." />
+
                 <span id="hide_span"></span>
                 <input type="text" id="txt_box" style={styles.textBox} placeholder="Try me out!" />
                 <input type="text" styles={styles.testInput} placeholder="Try me out!" />
