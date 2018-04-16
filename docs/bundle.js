@@ -289,48 +289,6 @@ module.exports = exports["default"];
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-
-/***/ }),
-/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -384,6 +342,48 @@ if (process.env.NODE_ENV !== 'production') {
 // ESM re-exports
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
 
 /***/ }),
 /* 5 */
@@ -599,7 +599,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1081,7 +1081,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -1250,7 +1250,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -1524,7 +1524,7 @@ var _navButtonStyles = __webpack_require__(13);
 
 var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -2708,7 +2708,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(6),n=__webpack_require__(8),p=__webpack_require__(3),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(6),n=__webpack_require__(8),p=__webpack_require__(4),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -2748,7 +2748,7 @@ var _assign = __webpack_require__(6);
 var emptyObject = __webpack_require__(8);
 var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(11);
 
 // TODO: this is special because it gets imported during build.
@@ -4150,7 +4150,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),l=__webpack_require__(19),B=__webpack_require__(6),C=__webpack_require__(3),ba=__webpack_require__(20),da=__webpack_require__(21),ea=__webpack_require__(22),fa=__webpack_require__(23),ia=__webpack_require__(24),D=__webpack_require__(8);
+var aa=__webpack_require__(0),l=__webpack_require__(19),B=__webpack_require__(6),C=__webpack_require__(4),ba=__webpack_require__(20),da=__webpack_require__(21),ea=__webpack_require__(22),fa=__webpack_require__(23),ia=__webpack_require__(24),D=__webpack_require__(8);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -4452,7 +4452,7 @@ var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
 var ExecutionEnvironment = __webpack_require__(19);
 var _assign = __webpack_require__(6);
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var EventListener = __webpack_require__(20);
 var getActiveElement = __webpack_require__(21);
 var shallowEqual = __webpack_require__(22);
@@ -20062,15 +20062,15 @@ var _Content = __webpack_require__(111);
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Footer = __webpack_require__(125);
+var _Footer = __webpack_require__(128);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _pageStyles = __webpack_require__(128);
+var _pageStyles = __webpack_require__(131);
 
 var _pageStyles2 = _interopRequireDefault(_pageStyles);
 
-var _pageData = __webpack_require__(129);
+var _pageData = __webpack_require__(132);
 
 var _pageData2 = _interopRequireDefault(_pageData);
 
@@ -20363,7 +20363,7 @@ exports.default = Header;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
 var assign = __webpack_require__(6);
@@ -20913,7 +20913,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var invariant = __webpack_require__(7);
 var ReactPropTypesSecret = __webpack_require__(12);
 
@@ -24845,7 +24845,7 @@ var _navButtonStyles = __webpack_require__(13);
 
 var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -24922,7 +24922,7 @@ var _Articles = __webpack_require__(112);
 
 var _Articles2 = _interopRequireDefault(_Articles);
 
-var _contentStyles = __webpack_require__(124);
+var _contentStyles = __webpack_require__(127);
 
 var _contentStyles2 = _interopRequireDefault(_contentStyles);
 
@@ -25233,7 +25233,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25479,7 +25479,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25647,7 +25647,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25655,15 +25655,21 @@ var _textBox_widthStyle = __webpack_require__(121);
 
 var _textBox_widthStyle2 = _interopRequireDefault(_textBox_widthStyle);
 
-var _Sign = __webpack_require__(122);
+var _textBox_labelStyle = __webpack_require__(122);
+
+var _textBox_labelStyle2 = _interopRequireDefault(_textBox_labelStyle);
+
+var _Sign = __webpack_require__(123);
 
 var _Sign2 = _interopRequireDefault(_Sign);
 
-var _SignModal = __webpack_require__(130);
+var _SignModal = __webpack_require__(125);
 
 var _SignModal2 = _interopRequireDefault(_SignModal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25672,8 +25678,77 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import haha from './textBox_width.css';
 
-var TextBox_width = function (_React$Component) {
-    _inherits(TextBox_width, _React$Component);
+var TextBox_Floating_input = function (_React$Component) {
+    _inherits(TextBox_Floating_input, _React$Component);
+
+    function TextBox_Floating_input() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, TextBox_Floating_input);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TextBox_Floating_input.__proto__ || Object.getPrototypeOf(TextBox_Floating_input)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            isFocused: false
+        }, _this.handleFocus = function () {
+            return _this.setState({ isFocused: true });
+        }, _this.handleBlur = function () {
+            return _this.setState({ isFocused: false });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(TextBox_Floating_input, [{
+        key: 'render',
+
+        //   handleFocus = () => {console.log("focus");}
+        //   handleBlur = () => {console.log("blur");}
+
+        value: function render() {
+            var _props = this.props,
+                label = _props.label,
+                props = _objectWithoutProperties(_props, ['label']);
+
+            var isFocused = this.state.isFocused;
+            //Alt1
+
+            var labelStyle = {
+                position: 'absolute',
+                left: 0,
+                top: !isFocused ? 2 : -15,
+                fontSize: !isFocused ? 20 : 14,
+                color: !isFocused ? '#aaa' : '#000'
+            };
+
+            //Alt2 //FUNKAR INTE!!!!
+            //   const alexTest = stylesLabel.label
+            //   top: !isFocused ? 2: -15;
+            //   fontSize: !isFocused ? 20 : 14;
+            //   color: !isFocused ? '#aaa' : '#000';
+            //   ;
+
+            return _react2.default.createElement(
+                'div',
+                { style: _textBox_labelStyle2.default.container },
+                _react2.default.createElement(
+                    'label',
+                    { style: labelStyle },
+                    'Email'
+                ),
+                _react2.default.createElement('input', { type: 'text', style: _textBox_labelStyle2.default.textbox, onFocus: this.handleFocus,
+                    onBlur: this.handleBlur })
+            );
+        }
+    }]);
+
+    return TextBox_Floating_input;
+}(_react2.default.Component);
+
+var TextBox_width = function (_React$Component2) {
+    _inherits(TextBox_width, _React$Component2);
 
     function TextBox_width(props) {
         _classCallCheck(this, TextBox_width);
@@ -25709,7 +25784,7 @@ var TextBox_width = function (_React$Component) {
                     el.style.width = txtBoxWidth + "px";
                 }
 
-                //ALT1.            
+                //ALT1.
                 // console.log("txtBoxWidth: " + txtBoxWidth);
                 // hideEl.textContent = el.value;
                 // var spanWidth = hideEl.getBoundingClientRect().width;
@@ -25759,7 +25834,7 @@ var TextBox_width = function (_React$Component) {
                 _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Hi!', text: 'This is dangerous, try clicking on the X.' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
-                _react2.default.createElement('input', { type: 'text', styles: _textBox_widthStyle2.default.testInput, placeholder: 'Try me out!' })
+                _react2.default.createElement(TextBox_Floating_input, null)
             );
         }
     }]);
@@ -25796,15 +25871,45 @@ exports.default = {
         border: '1px solid #eee',
         '::-webkit-input-placeholder': {
             color: 'red'
-        }
-    },
-    testInput: {
-        // width: '100%',
+        },
+        marginBottom: '30px'
     }
 };
 
 /***/ }),
 /* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    container: {
+        width: '100%',
+        paddingBottom: '18px',
+        position: 'relative'
+    },
+    textbox: {
+        height: '26px',
+        fontsize: '20px',
+        color: '#000',
+        borderStyle: 'none none solid none',
+        borderBottomWidth: '1',
+        borderBottomColor: '#555',
+        outline: 'none'
+
+    },
+    label: {
+        position: 'absolute',
+        left: '0'
+    }
+};
+
+/***/ }),
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25822,11 +25927,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _signStyle = __webpack_require__(123);
+var _signStyle = __webpack_require__(124);
 
 var _signStyle2 = _interopRequireDefault(_signStyle);
 
@@ -25888,7 +25993,7 @@ var Sign = function (_React$Component) {
 exports.default = (0, _radium2.default)(Sign);
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25928,323 +26033,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    content: {
-        maxWidth: '700px',
-        width: '93%',
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap'
-    },
-    section: {
-        width: '100%',
-        minWidth: '350px',
-        display: 'flex',
-        justifyContent: 'center',
-        transition: 'padding-top 0.6s ease-out',
-        paddingTop: '110px'
-    }
-
-};
-
-/***/ }),
 /* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _NavButton = __webpack_require__(25);
-
-var _NavButton2 = _interopRequireDefault(_NavButton);
-
-var _NavExternal = __webpack_require__(126);
-
-var _NavExternal2 = _interopRequireDefault(_NavExternal);
-
-var _footerStyles = __webpack_require__(127);
-
-var _footerStyles2 = _interopRequireDefault(_footerStyles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Footer = function (_React$Component) {
-    _inherits(Footer, _React$Component);
-
-    function Footer(props) {
-        _classCallCheck(this, Footer);
-
-        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
-
-        _this.state = {
-            lastScrollPosition: 0,
-            lastClick: 0
-        };
-        return _this;
-    }
-
-    _createClass(Footer, [{
-        key: 'updateLastClick',
-        value: function updateLastClick(lastClick, e) {
-            e.preventDefault();
-            this.setState({ lastClick: lastClick });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var navButtons = this.props.navButtons.map(function (navButton) {
-                return _react2.default.createElement(_NavButton2.default, {
-                    id: navButton.id,
-                    key: navButton.id,
-                    goTo: _this2.goTo,
-                    firstRightAligned: navButton.firstRightAligned,
-                    lastClick: _this2.state.lastClick,
-                    onLastClickUpdate: function onLastClickUpdate(e) {
-                        return _this2.updateLastClick;
-                    } });
-            });
-            return _react2.default.createElement(
-                'footer',
-                { id: 'Contact', style: _footerStyles2.default.footer },
-                _react2.default.createElement(
-                    'nav',
-                    { style: _footerStyles2.default.menu },
-                    navButtons,
-                    _react2.default.createElement(_NavExternal2.default, { externalRef: this.props.externalRef })
-                )
-            );
-        }
-    }]);
-
-    return Footer;
-}(_react2.default.Component);
-
-exports.default = Footer;
-
-/***/ }),
-/* 126 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _navButtonStyles = __webpack_require__(13);
-
-var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
-
-var _radium = __webpack_require__(4);
-
-var _radium2 = _interopRequireDefault(_radium);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NavExternal = function (_React$Component) {
-    _inherits(NavExternal, _React$Component);
-
-    function NavExternal(props) {
-        _classCallCheck(this, NavExternal);
-
-        return _possibleConstructorReturn(this, (NavExternal.__proto__ || Object.getPrototypeOf(NavExternal)).call(this, props));
-    }
-
-    _createClass(NavExternal, [{
-        key: 'showMenu',
-        value: function showMenu(bool, e) {
-            e.preventDefault();
-            this.props.showMenu(bool, e);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'a',
-                {
-                    href: this.props.externalRef.uri,
-                    target: '_blank',
-                    style: _navButtonStyles2.default.menuItem },
-                this.props.externalRef.name
-            );
-        }
-    }]);
-
-    return NavExternal;
-}(_react2.default.Component);
-
-exports.default = (0, _radium2.default)(NavExternal);
-
-/***/ }),
-/* 127 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    footer: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%',
-        minWidth: '350px',
-        padding: '3vh',
-        backgroundColor: '#5599dd88'
-    },
-    menu: {
-        display: 'flex',
-        width: '92%',
-        justifyContent: 'space-between'
-    }
-};
-
-/***/ }),
-/* 128 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    page: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        minWidth: '350px',
-        fontFamily: '"Roboto", sans-serif',
-        fontSize: '17px'
-    }
-};
-
-/***/ }),
-/* 129 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _PromisesDemo = __webpack_require__(18);
-
-var _PromisesDemo2 = _interopRequireDefault(_PromisesDemo);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    navButtons: [{
-        id: 'Home',
-        firstRightAligned: false,
-        logo: true
-    }, {
-        id: 'Promises',
-        firstRightAligned: true,
-        logo: false
-    }, {
-        id: 'REST-API',
-        firstRightAligned: false,
-        logo: false
-    }, {
-        id: 'About',
-        firstRightAligned: false,
-        logo: false
-    }, {
-        id: 'Legacy',
-        firstRightAligned: false,
-        logo: false
-    }, {
-        id: 'TextBox',
-        firstRightAligned: false,
-        logo: false
-    }, {
-        id: 'Contact',
-        firstRightAligned: false,
-        logo: false
-    }],
-    content: {
-        articles: [{
-            header: 'Home',
-            paragraphs: ["Lorem ipsum dolor amet ennui hexagon sartorial williamsburg +1. Offal pour-over bespoke sustainable biodiesel. Tumblr YOLO 8-bit vegan messenger bag. Pug umami tumblr live-edge celiac salvia. Beard sustainable umami hoodie hashtag migas scenester 3 wolf moon fam chicharrones kogi readymade tattooed. Fashion axe try-hard helvetica truffaut, pop-up hammock franzen celiac tattooed.", "Alex var här! mixtape fam fashion axe. +1 actually shaman, pinterest cornhole fam sriracha asymmetrical. Slow-carb unicorn tattooed marfa swag pour-over. Taxidermy DIY 8-bit brooklyn seitan before they sold out. Gochujang cray fanny pack flannel, ethical kickstarter tumblr lo-fi taxidermy snackwave keytar kinfolk vegan vice.", "Paleo semiotics green juice flannel salvia keffiyeh austin migas man braid bushwick. Palo santo master cleanse banh mi chillwave unicorn subway tile williamsburg. Retro biodiesel migas hexagon blog palo santo flexitarian ennui salvia artisan wayfarers cray hoodie flannel. Cornhole 3 wolf moon vegan, you probably haven't heard of them etsy celiac neutra gluten-free roof party bitters knausgaard portland.", "Disrupt hella slow-carb polaroid listicle meditation squid chia, blog man bun keffiyeh kitsch narwhal. Messenger bag food truck raclette tousled sriracha yuccie, irony coloring book copper mug pitchfork migas woke. Selvage master cleanse cold-pressed copper mug lumbersexual, schlitz letterpress PBR&B man bun iPhone cray 90's yuccie hexagon vape. Sustainable offal next level bespoke kale chips chambray chillwave. Chicharrones godard austin seitan jean shorts banh mi, ethical air plant. Snackwave trust fund godard distillery etsy.", "Tumblr pok pok etsy, tacos single-origin coffee scenester locavore knausgaard retro selfies gochujang brunch. Helvetica ugh blog tattooed put a bird on it everyday carry asymmetrical truffaut locavore retro drinking vinegar ramps. Forage artisan direct trade narwhal semiotics. Man bun bitters you probably haven't heard of them, drinking vinegar slow-carb yuccie typewriter chartreuse vape poutine heirloom brooklyn sustainable. Meh flannel snackwave, asymmetrical taxidermy dreamcatcher post-ironic authentic ugh echo park kombucha hoodie. PBR&B vexillologist glossier squid cred irony wolf beard. Fixie single-origin coffee vice succulents actually whatever tofu raw denim swag squid viral health goth YOLO photo booth kombucha.", "Oh. You need a little dummy text for your mockup? How quaint.", "I bet you’re still using Bootstrap too…"]
-        }, {
-            header: 'Promises',
-            paragraphs: ["A display of promises, async calls and use of this-keyword."]
-        }, {
-            header: 'REST-API',
-            paragraphs: ["A display of connection to a REST-API, using async calls."]
-        }, {
-            header: 'Async/Await',
-            paragraphs: ["A display of async/await and babel -> ES7."]
-        }, {
-            header: 'TextBox',
-            paragraphs: ["A dynamic textbox"]
-        }, {
-            header: 'About',
-            paragraphs: ["Cray kinfolk mlkshk locavore beard skateboard pork belly cred trust fund fam literally. Green juice wayfarers blue bottle kogi taiyaki offal street art lyft selfies thundercats bitters affogato helvetica pok pok. Jean shorts fingerstache 90's iPhone, brunch raclette selfies intelligentsia neutra chicharrones ugh tumblr farm-to-table. Chillwave poutine glossier everyday carry trust fund mumblecore bushwick 90's farm-to-table drinking vinegar wolf viral next level. Man bun subway tile kitsch af meh asymmetrical cold-pressed salvia quinoa edison bulb banjo. Waistcoat cred keytar, gentrify DIY four dollar toast yuccie vegan butcher roof party tbh forage hot chicken hoodie 8-bit.", "Skateboard narwhal marfa tofu drinking vinegar unicorn flexitarian pour-over fam messenger bag. Bushwick ramps fixie meggings, tofu pug affogato letterpress mustache trust fund franzen selfies lyft microdosing neutra. Williamsburg la croix tumeric marfa humblebrag keytar +1 kombucha letterpress snackwave forage neutra iceland. Chartreuse celiac tumblr jianbing offal organic. Organic sriracha pork belly PBR&B shabby chic 90's four dollar toast.", "Direct trade swag next level sustainable, DIY flannel put a bird on it selvage hoodie poutine actually williamsburg. DIY freegan locavore iPhone tattooed single-origin coffee, XOXO cloud bread vape shaman tilde actually. Authentic iPhone XOXO hammock sriracha banjo disrupt pitchfork thundercats art party. Lumbersexual kombucha asymmetrical waistcoat, food truck hella ramps forage raclette. Forage wayfarers iPhone kinfolk mixtape truffaut.", "Direct trade swag next level sustainable, DIY flannel put a bird on it selvage hoodie poutine actually williamsburg. DIY freegan locavore iPhone tattooed single-origin coffee, XOXO cloud bread vape shaman tilde actually. Authentic iPhone XOXO hammock sriracha banjo disrupt pitchfork thundercats art party. Lumbersexual kombucha asymmetrical waistcoat, food truck hella ramps forage raclette. Forage wayfarers iPhone kinfolk mixtape truffaut.", "Forage truffaut chambray bespoke letterpress. Beard slow-carb flexitarian master cleanse kombucha distillery flannel shoreditch forage iPhone scenester locavore fam +1 drinking vinegar. Slow-carb mlkshk shoreditch portland cronut put a bird on it swag. YOLO edison bulb waistcoat, echo park shaman affogato forage +1 freegan tacos helvetica skateboard. Fam offal cardigan craft beer glossier forage. Disrupt edison bulb man bun kinfolk gentrify, taxidermy ramps 90's irony direct trade +1 echo park sustainable.", "Neutra 90's gentrify before they sold out lyft squid crucifix. Hella cronut craft beer, pour-over copper mug salvia man braid cliche. Marfa church-key neutra biodiesel stumptown pop-up glossier VHS ethical bicycle rights shaman yr prism listicle ennui. Bushwick mustache small batch sriracha waistcoat drinking vinegar unicorn church-key taiyaki marfa tousled. Freegan chicharrones blue bottle marfa migas microdosing gastropub asymmetrical man braid next level raclette you probably haven't heard of them vape scenester. Messenger bag pop-up church-key tofu pork belly."]
-        }, {
-            header: 'Legacy',
-            paragraphs: ["Waistcoat adaptogen meditation jianbing raclette offal, taxidermy ugh iceland brooklyn cornhole butcher lyft. Taxidermy meggings photo booth plaid art party air plant squid, edison bulb actually sustainable cronut narwhal retro marfa. Brunch street art art party, trust fund subway tile marfa mustache freegan bicycle rights. Letterpress williamsburg farm-to-table chartreuse vinyl franzen master cleanse asymmetrical DIY. Fam succulents hammock chartreuse, celiac keffiyeh direct trade selvage chillwave bicycle rights. Readymade cornhole ennui, lumbersexual activated charcoal mixtape etsy.", "Kale chips iPhone fingerstache, meggings neutra hammock echo park asymmetrical bespoke cronut. Tumblr DIY af, keytar photo booth small batch iPhone truffaut shoreditch 8-bit craft beer next level meditation gochujang. Shoreditch aesthetic 8-bit offal banjo. Austin truffaut stumptown yr salvia. Hashtag everyday carry meh austin crucifix tbh distillery kombucha artisan trust fund tacos bespoke raclette thundercats chartreuse. Kogi waistcoat etsy normcore 8-bit adaptogen slow-carb.", "Letterpress cronut hella, vegan succulents DIY wolf viral raclette kickstarter gentrify activated charcoal austin ugh distillery. Succulents prism hella, chicharrones bitters tumeric umami. Raclette vinyl roof party biodiesel, poutine venmo ennui yuccie umami celiac intelligentsia cardigan microdosing synth. Shabby chic before they sold out church-key poke. Cloud bread prism shoreditch etsy mumblecore edison bulb actually meggings unicorn next level typewriter adaptogen vegan sriracha tilde."]
-        }]
-    },
-    footerButtons: [{
-        id: 'Home',
-        firstRightAligned: false,
-        logo: false
-    }],
-    externalRef: {
-        name: 'Sebastian Uddén',
-        uri: 'https://github.com/SebastianUdden'
-    }
-};
-
-/***/ }),
-/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26262,11 +26051,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _signModalStyle = __webpack_require__(131);
+var _signModalStyle = __webpack_require__(126);
 
 var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
 
@@ -26372,7 +26161,7 @@ var SignModal = function (_React$Component) {
 exports.default = (0, _radium2.default)(SignModal);
 
 /***/ }),
-/* 131 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26455,6 +26244,322 @@ exports.default = {
     icon: {
         fontSize: '1.3em',
         padding: '0 7px'
+    }
+};
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    content: {
+        maxWidth: '700px',
+        width: '93%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
+    },
+    section: {
+        width: '100%',
+        minWidth: '350px',
+        display: 'flex',
+        justifyContent: 'center',
+        transition: 'padding-top 0.6s ease-out',
+        paddingTop: '110px'
+    }
+
+};
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _NavButton = __webpack_require__(25);
+
+var _NavButton2 = _interopRequireDefault(_NavButton);
+
+var _NavExternal = __webpack_require__(129);
+
+var _NavExternal2 = _interopRequireDefault(_NavExternal);
+
+var _footerStyles = __webpack_require__(130);
+
+var _footerStyles2 = _interopRequireDefault(_footerStyles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Footer = function (_React$Component) {
+    _inherits(Footer, _React$Component);
+
+    function Footer(props) {
+        _classCallCheck(this, Footer);
+
+        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+        _this.state = {
+            lastScrollPosition: 0,
+            lastClick: 0
+        };
+        return _this;
+    }
+
+    _createClass(Footer, [{
+        key: 'updateLastClick',
+        value: function updateLastClick(lastClick, e) {
+            e.preventDefault();
+            this.setState({ lastClick: lastClick });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var navButtons = this.props.navButtons.map(function (navButton) {
+                return _react2.default.createElement(_NavButton2.default, {
+                    id: navButton.id,
+                    key: navButton.id,
+                    goTo: _this2.goTo,
+                    firstRightAligned: navButton.firstRightAligned,
+                    lastClick: _this2.state.lastClick,
+                    onLastClickUpdate: function onLastClickUpdate(e) {
+                        return _this2.updateLastClick;
+                    } });
+            });
+            return _react2.default.createElement(
+                'footer',
+                { id: 'Contact', style: _footerStyles2.default.footer },
+                _react2.default.createElement(
+                    'nav',
+                    { style: _footerStyles2.default.menu },
+                    navButtons,
+                    _react2.default.createElement(_NavExternal2.default, { externalRef: this.props.externalRef })
+                )
+            );
+        }
+    }]);
+
+    return Footer;
+}(_react2.default.Component);
+
+exports.default = Footer;
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _navButtonStyles = __webpack_require__(13);
+
+var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
+
+var _radium = __webpack_require__(3);
+
+var _radium2 = _interopRequireDefault(_radium);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NavExternal = function (_React$Component) {
+    _inherits(NavExternal, _React$Component);
+
+    function NavExternal(props) {
+        _classCallCheck(this, NavExternal);
+
+        return _possibleConstructorReturn(this, (NavExternal.__proto__ || Object.getPrototypeOf(NavExternal)).call(this, props));
+    }
+
+    _createClass(NavExternal, [{
+        key: 'showMenu',
+        value: function showMenu(bool, e) {
+            e.preventDefault();
+            this.props.showMenu(bool, e);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'a',
+                {
+                    href: this.props.externalRef.uri,
+                    target: '_blank',
+                    style: _navButtonStyles2.default.menuItem },
+                this.props.externalRef.name
+            );
+        }
+    }]);
+
+    return NavExternal;
+}(_react2.default.Component);
+
+exports.default = (0, _radium2.default)(NavExternal);
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    footer: {
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100%',
+        minWidth: '350px',
+        padding: '3vh',
+        backgroundColor: '#5599dd88'
+    },
+    menu: {
+        display: 'flex',
+        width: '92%',
+        justifyContent: 'space-between'
+    }
+};
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    page: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        minWidth: '350px',
+        fontFamily: '"Roboto", sans-serif',
+        fontSize: '17px'
+    }
+};
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _PromisesDemo = __webpack_require__(18);
+
+var _PromisesDemo2 = _interopRequireDefault(_PromisesDemo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    navButtons: [{
+        id: 'Home',
+        firstRightAligned: false,
+        logo: true
+    }, {
+        id: 'Promises',
+        firstRightAligned: true,
+        logo: false
+    }, {
+        id: 'REST-API',
+        firstRightAligned: false,
+        logo: false
+    }, {
+        id: 'About',
+        firstRightAligned: false,
+        logo: false
+    }, {
+        id: 'Legacy',
+        firstRightAligned: false,
+        logo: false
+    }, {
+        id: 'TextBox',
+        firstRightAligned: false,
+        logo: false
+    }, {
+        id: 'Contact',
+        firstRightAligned: false,
+        logo: false
+    }],
+    content: {
+        articles: [{
+            header: 'Home',
+            paragraphs: ["Lorem ipsum dolor amet ennui hexagon sartorial williamsburg +1. Offal pour-over bespoke sustainable biodiesel. Tumblr YOLO 8-bit vegan messenger bag. Pug umami tumblr live-edge celiac salvia. Beard sustainable umami hoodie hashtag migas scenester 3 wolf moon fam chicharrones kogi readymade tattooed. Fashion axe try-hard helvetica truffaut, pop-up hammock franzen celiac tattooed.", "Alex var här! mixtape fam fashion axe. +1 actually shaman, pinterest cornhole fam sriracha asymmetrical. Slow-carb unicorn tattooed marfa swag pour-over. Taxidermy DIY 8-bit brooklyn seitan before they sold out. Gochujang cray fanny pack flannel, ethical kickstarter tumblr lo-fi taxidermy snackwave keytar kinfolk vegan vice.", "Paleo semiotics green juice flannel salvia keffiyeh austin migas man braid bushwick. Palo santo master cleanse banh mi chillwave unicorn subway tile williamsburg. Retro biodiesel migas hexagon blog palo santo flexitarian ennui salvia artisan wayfarers cray hoodie flannel. Cornhole 3 wolf moon vegan, you probably haven't heard of them etsy celiac neutra gluten-free roof party bitters knausgaard portland.", "Disrupt hella slow-carb polaroid listicle meditation squid chia, blog man bun keffiyeh kitsch narwhal. Messenger bag food truck raclette tousled sriracha yuccie, irony coloring book copper mug pitchfork migas woke. Selvage master cleanse cold-pressed copper mug lumbersexual, schlitz letterpress PBR&B man bun iPhone cray 90's yuccie hexagon vape. Sustainable offal next level bespoke kale chips chambray chillwave. Chicharrones godard austin seitan jean shorts banh mi, ethical air plant. Snackwave trust fund godard distillery etsy.", "Tumblr pok pok etsy, tacos single-origin coffee scenester locavore knausgaard retro selfies gochujang brunch. Helvetica ugh blog tattooed put a bird on it everyday carry asymmetrical truffaut locavore retro drinking vinegar ramps. Forage artisan direct trade narwhal semiotics. Man bun bitters you probably haven't heard of them, drinking vinegar slow-carb yuccie typewriter chartreuse vape poutine heirloom brooklyn sustainable. Meh flannel snackwave, asymmetrical taxidermy dreamcatcher post-ironic authentic ugh echo park kombucha hoodie. PBR&B vexillologist glossier squid cred irony wolf beard. Fixie single-origin coffee vice succulents actually whatever tofu raw denim swag squid viral health goth YOLO photo booth kombucha.", "Oh. You need a little dummy text for your mockup? How quaint.", "I bet you’re still using Bootstrap too…"]
+        }, {
+            header: 'Promises',
+            paragraphs: ["A display of promises, async calls and use of this-keyword."]
+        }, {
+            header: 'REST-API',
+            paragraphs: ["A display of connection to a REST-API, using async calls."]
+        }, {
+            header: 'Async/Await',
+            paragraphs: ["A display of async/await and babel -> ES7."]
+        }, {
+            header: 'TextBox',
+            paragraphs: ["A dynamic textbox"]
+        }, {
+            header: 'About',
+            paragraphs: ["Cray kinfolk mlkshk locavore beard skateboard pork belly cred trust fund fam literally. Green juice wayfarers blue bottle kogi taiyaki offal street art lyft selfies thundercats bitters affogato helvetica pok pok. Jean shorts fingerstache 90's iPhone, brunch raclette selfies intelligentsia neutra chicharrones ugh tumblr farm-to-table. Chillwave poutine glossier everyday carry trust fund mumblecore bushwick 90's farm-to-table drinking vinegar wolf viral next level. Man bun subway tile kitsch af meh asymmetrical cold-pressed salvia quinoa edison bulb banjo. Waistcoat cred keytar, gentrify DIY four dollar toast yuccie vegan butcher roof party tbh forage hot chicken hoodie 8-bit.", "Skateboard narwhal marfa tofu drinking vinegar unicorn flexitarian pour-over fam messenger bag. Bushwick ramps fixie meggings, tofu pug affogato letterpress mustache trust fund franzen selfies lyft microdosing neutra. Williamsburg la croix tumeric marfa humblebrag keytar +1 kombucha letterpress snackwave forage neutra iceland. Chartreuse celiac tumblr jianbing offal organic. Organic sriracha pork belly PBR&B shabby chic 90's four dollar toast.", "Direct trade swag next level sustainable, DIY flannel put a bird on it selvage hoodie poutine actually williamsburg. DIY freegan locavore iPhone tattooed single-origin coffee, XOXO cloud bread vape shaman tilde actually. Authentic iPhone XOXO hammock sriracha banjo disrupt pitchfork thundercats art party. Lumbersexual kombucha asymmetrical waistcoat, food truck hella ramps forage raclette. Forage wayfarers iPhone kinfolk mixtape truffaut.", "Direct trade swag next level sustainable, DIY flannel put a bird on it selvage hoodie poutine actually williamsburg. DIY freegan locavore iPhone tattooed single-origin coffee, XOXO cloud bread vape shaman tilde actually. Authentic iPhone XOXO hammock sriracha banjo disrupt pitchfork thundercats art party. Lumbersexual kombucha asymmetrical waistcoat, food truck hella ramps forage raclette. Forage wayfarers iPhone kinfolk mixtape truffaut.", "Forage truffaut chambray bespoke letterpress. Beard slow-carb flexitarian master cleanse kombucha distillery flannel shoreditch forage iPhone scenester locavore fam +1 drinking vinegar. Slow-carb mlkshk shoreditch portland cronut put a bird on it swag. YOLO edison bulb waistcoat, echo park shaman affogato forage +1 freegan tacos helvetica skateboard. Fam offal cardigan craft beer glossier forage. Disrupt edison bulb man bun kinfolk gentrify, taxidermy ramps 90's irony direct trade +1 echo park sustainable.", "Neutra 90's gentrify before they sold out lyft squid crucifix. Hella cronut craft beer, pour-over copper mug salvia man braid cliche. Marfa church-key neutra biodiesel stumptown pop-up glossier VHS ethical bicycle rights shaman yr prism listicle ennui. Bushwick mustache small batch sriracha waistcoat drinking vinegar unicorn church-key taiyaki marfa tousled. Freegan chicharrones blue bottle marfa migas microdosing gastropub asymmetrical man braid next level raclette you probably haven't heard of them vape scenester. Messenger bag pop-up church-key tofu pork belly."]
+        }, {
+            header: 'Legacy',
+            paragraphs: ["Waistcoat adaptogen meditation jianbing raclette offal, taxidermy ugh iceland brooklyn cornhole butcher lyft. Taxidermy meggings photo booth plaid art party air plant squid, edison bulb actually sustainable cronut narwhal retro marfa. Brunch street art art party, trust fund subway tile marfa mustache freegan bicycle rights. Letterpress williamsburg farm-to-table chartreuse vinyl franzen master cleanse asymmetrical DIY. Fam succulents hammock chartreuse, celiac keffiyeh direct trade selvage chillwave bicycle rights. Readymade cornhole ennui, lumbersexual activated charcoal mixtape etsy.", "Kale chips iPhone fingerstache, meggings neutra hammock echo park asymmetrical bespoke cronut. Tumblr DIY af, keytar photo booth small batch iPhone truffaut shoreditch 8-bit craft beer next level meditation gochujang. Shoreditch aesthetic 8-bit offal banjo. Austin truffaut stumptown yr salvia. Hashtag everyday carry meh austin crucifix tbh distillery kombucha artisan trust fund tacos bespoke raclette thundercats chartreuse. Kogi waistcoat etsy normcore 8-bit adaptogen slow-carb.", "Letterpress cronut hella, vegan succulents DIY wolf viral raclette kickstarter gentrify activated charcoal austin ugh distillery. Succulents prism hella, chicharrones bitters tumeric umami. Raclette vinyl roof party biodiesel, poutine venmo ennui yuccie umami celiac intelligentsia cardigan microdosing synth. Shabby chic before they sold out church-key poke. Cloud bread prism shoreditch etsy mumblecore edison bulb actually meggings unicorn next level typewriter adaptogen vegan sriracha tilde."]
+        }]
+    },
+    footerButtons: [{
+        id: 'Home',
+        firstRightAligned: false,
+        logo: false
+    }],
+    externalRef: {
+        name: 'Sebastian Uddén',
+        uri: 'https://github.com/SebastianUdden'
     }
 };
 

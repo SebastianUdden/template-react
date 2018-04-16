@@ -14,10 +14,8 @@ export default {
         color: '#b0b7b9',
         border: '1px solid #eee',
         '::-webkit-input-placeholder': {
-           color: 'red',
-        }
-    },
-    testInput: {
-        // width: '100%',
+            color: 'red'
+        },
+        marginBottom: '30px'
     }
 }
