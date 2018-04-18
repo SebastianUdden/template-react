@@ -15,8 +15,6 @@ class TextBox_Floating_input extends React.Component {
 
       handleFocus = () => this.setState({ isFocused: true });
       handleBlur = () => this.setState({ isFocused: false });
-    //   handleFocus = () => {console.log("focus");}
-    //   handleBlur = () => {console.log("blur");}
 
     render() {
         const { label, ...props } = this.props;
@@ -27,8 +25,20 @@ class TextBox_Floating_input extends React.Component {
             left: 0,
             top: !isFocused ? 2 : -15,
             fontSize: !isFocused ? 20 : 14,
-            color: !isFocused ? '#aaa' : '#000',
+            color: !isFocused ? '#aaa' : '#5599ddbb',
+            transition: !isFocused ? '40': '0',
           };
+        const textBox = {
+            height: '26px',
+            fontsize: '20px',
+            color: '#000',
+            borderStyle: 'none none solid none',
+            borderBottomWidth: '1',
+            backgroundColor: '#ECF4FB',
+            borderBottomColor: !isFocused ? '#555' :'#5599ddbb',
+            transition: !isFocused ? '40': '0',
+            outline : 'none',
+        };
 
           //Alt2 //FUNKAR INTE!!!!
         //   const alexTest = stylesLabel.label
@@ -38,10 +48,11 @@ class TextBox_Floating_input extends React.Component {
         //   ;
 
         return (
-            <div style={stylesLabel.container}>
+            <div style={stylesLabel.container} /*onMouseOut={this.handleBlur}*/>
             <label style={labelStyle}>Email</label>
-            <input type="text" style={stylesLabel.textbox} onFocus={this.handleFocus}
-            onBlur={this.handleBlur}></input>
+            <input type="text" style={textBox} onFocus={this.handleFocus}
+            onBlur={this.handleBlur} /*onMouseOver={this.handleFocus}*/ > 
+            </input>
             </div>
 
         );

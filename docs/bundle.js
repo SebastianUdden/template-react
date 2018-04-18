@@ -25703,10 +25703,6 @@ var TextBox_Floating_input = function (_React$Component) {
 
     _createClass(TextBox_Floating_input, [{
         key: 'render',
-
-        //   handleFocus = () => {console.log("focus");}
-        //   handleBlur = () => {console.log("blur");}
-
         value: function render() {
             var _props = this.props,
                 label = _props.label,
@@ -25720,7 +25716,19 @@ var TextBox_Floating_input = function (_React$Component) {
                 left: 0,
                 top: !isFocused ? 2 : -15,
                 fontSize: !isFocused ? 20 : 14,
-                color: !isFocused ? '#aaa' : '#000'
+                color: !isFocused ? '#aaa' : '#5599ddbb',
+                transition: !isFocused ? '40' : '0'
+            };
+            var textBox = {
+                height: '26px',
+                fontsize: '20px',
+                color: '#000',
+                borderStyle: 'none none solid none',
+                borderBottomWidth: '1',
+                backgroundColor: '#ECF4FB',
+                borderBottomColor: !isFocused ? '#555' : '#5599ddbb',
+                transition: !isFocused ? '40' : '0',
+                outline: 'none'
             };
 
             //Alt2 //FUNKAR INTE!!!!
@@ -25732,14 +25740,14 @@ var TextBox_Floating_input = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { style: _textBox_labelStyle2.default.container },
+                { style: _textBox_labelStyle2.default.container /*onMouseOut={this.handleBlur}*/ },
                 _react2.default.createElement(
                     'label',
                     { style: labelStyle },
                     'Email'
                 ),
-                _react2.default.createElement('input', { type: 'text', style: _textBox_labelStyle2.default.textbox, onFocus: this.handleFocus,
-                    onBlur: this.handleBlur })
+                _react2.default.createElement('input', { type: 'text', style: textBox, onFocus: this.handleFocus,
+                    onBlur: this.handleBlur /*onMouseOver={this.handleFocus}*/ })
             );
         }
     }]);
