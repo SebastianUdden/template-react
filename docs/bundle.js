@@ -20062,6 +20062,7 @@ var _Content = __webpack_require__(111);
 
 var _Content2 = _interopRequireDefault(_Content);
 
+<<<<<<< HEAD
 var _Footer = __webpack_require__(127);
 
 var _Footer2 = _interopRequireDefault(_Footer);
@@ -20071,6 +20072,17 @@ var _pageStyles = __webpack_require__(130);
 var _pageStyles2 = _interopRequireDefault(_pageStyles);
 
 var _pageData = __webpack_require__(131);
+=======
+var _Footer = __webpack_require__(128);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+var _pageStyles = __webpack_require__(131);
+
+var _pageStyles2 = _interopRequireDefault(_pageStyles);
+
+var _pageData = __webpack_require__(132);
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 
 var _pageData2 = _interopRequireDefault(_pageData);
 
@@ -24922,7 +24934,11 @@ var _Articles = __webpack_require__(112);
 
 var _Articles2 = _interopRequireDefault(_Articles);
 
+<<<<<<< HEAD
 var _contentStyles = __webpack_require__(126);
+=======
+var _contentStyles = __webpack_require__(127);
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 
 var _contentStyles2 = _interopRequireDefault(_contentStyles);
 
@@ -25655,15 +25671,25 @@ var _textBox_widthStyle = __webpack_require__(121);
 
 var _textBox_widthStyle2 = _interopRequireDefault(_textBox_widthStyle);
 
-var _Sign = __webpack_require__(122);
+var _textBox_labelStyle = __webpack_require__(122);
+
+var _textBox_labelStyle2 = _interopRequireDefault(_textBox_labelStyle);
+
+var _Sign = __webpack_require__(123);
 
 var _Sign2 = _interopRequireDefault(_Sign);
 
+<<<<<<< HEAD
 var _SignModal = __webpack_require__(124);
+=======
+var _SignModal = __webpack_require__(125);
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 
 var _SignModal2 = _interopRequireDefault(_SignModal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25672,8 +25698,77 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 //import haha from './textBox_width.css';
 
-var TextBox_width = function (_React$Component) {
-    _inherits(TextBox_width, _React$Component);
+var TextBox_Floating_input = function (_React$Component) {
+    _inherits(TextBox_Floating_input, _React$Component);
+
+    function TextBox_Floating_input() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, TextBox_Floating_input);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TextBox_Floating_input.__proto__ || Object.getPrototypeOf(TextBox_Floating_input)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            isFocused: false
+        }, _this.handleFocus = function () {
+            return _this.setState({ isFocused: true });
+        }, _this.handleBlur = function () {
+            return _this.setState({ isFocused: false });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(TextBox_Floating_input, [{
+        key: 'render',
+
+        //   handleFocus = () => {console.log("focus");}
+        //   handleBlur = () => {console.log("blur");}
+
+        value: function render() {
+            var _props = this.props,
+                label = _props.label,
+                props = _objectWithoutProperties(_props, ['label']);
+
+            var isFocused = this.state.isFocused;
+            //Alt1
+
+            var labelStyle = {
+                position: 'absolute',
+                left: 0,
+                top: !isFocused ? 2 : -15,
+                fontSize: !isFocused ? 20 : 14,
+                color: !isFocused ? '#aaa' : '#000'
+            };
+
+            //Alt2 //FUNKAR INTE!!!!
+            //   const alexTest = stylesLabel.label
+            //   top: !isFocused ? 2: -15;
+            //   fontSize: !isFocused ? 20 : 14;
+            //   color: !isFocused ? '#aaa' : '#000';
+            //   ;
+
+            return _react2.default.createElement(
+                'div',
+                { style: _textBox_labelStyle2.default.container },
+                _react2.default.createElement(
+                    'label',
+                    { style: labelStyle },
+                    'Email'
+                ),
+                _react2.default.createElement('input', { type: 'text', style: _textBox_labelStyle2.default.textbox, onFocus: this.handleFocus,
+                    onBlur: this.handleBlur })
+            );
+        }
+    }]);
+
+    return TextBox_Floating_input;
+}(_react2.default.Component);
+
+var TextBox_width = function (_React$Component2) {
+    _inherits(TextBox_width, _React$Component2);
 
     function TextBox_width(props) {
         _classCallCheck(this, TextBox_width);
@@ -25684,14 +25779,13 @@ var TextBox_width = function (_React$Component) {
     _createClass(TextBox_width, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            var delayTimer;
 
             var txtBox = document.getElementById("txt_box");
             var span = document.getElementById("hide_span");
             var txtBoxWidth = txtBox.getBoundingClientRect().width;
 
             function changeWidth(el, hideEl, maxWidth, fontSizeFromtxtBox, horizontalpaddingFromtxBox, borderSizeFromtxtBox) {
-
-                //TODO måste lägga in setTimeout()!
 
                 //ALT2.
                 hideEl.textContent = el.value;
@@ -25710,7 +25804,7 @@ var TextBox_width = function (_React$Component) {
                     el.style.width = txtBoxWidth + "px";
                 }
 
-                //ALT1.            
+                //ALT1.
                 // console.log("txtBoxWidth: " + txtBoxWidth);
                 // hideEl.textContent = el.value;
                 // var spanWidth = hideEl.getBoundingClientRect().width;
@@ -25730,6 +25824,9 @@ var TextBox_width = function (_React$Component) {
                 //         console.log("txtBoxWidth: " + txtBoxWidth);
                 //     }
             }
+
+            // clearTimeout(delayTimer);
+            // delayTimer = setTimeout(test,200);
 
             //From DOM lever 2
             //You need to use keyup or else it will not "read" the letters correct.
@@ -25760,7 +25857,7 @@ var TextBox_width = function (_React$Component) {
                 _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Oh no!', text: 'Something went wrong, go back and try again...' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
-                _react2.default.createElement('input', { type: 'text', styles: _textBox_widthStyle2.default.testInput, placeholder: 'Try me out!' })
+                _react2.default.createElement(TextBox_Floating_input, null)
             );
         }
     }]);
@@ -25797,15 +25894,45 @@ exports.default = {
         border: '1px solid #eee',
         '::-webkit-input-placeholder': {
             color: 'red'
-        }
-    },
-    testInput: {
-        // width: '100%',
+        },
+        marginBottom: '30px'
     }
 };
 
 /***/ }),
 /* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    container: {
+        width: '100%',
+        paddingBottom: '18px',
+        position: 'relative'
+    },
+    textbox: {
+        height: '26px',
+        fontsize: '20px',
+        color: '#000',
+        borderStyle: 'none none solid none',
+        borderBottomWidth: '1',
+        borderBottomColor: '#555',
+        outline: 'none'
+
+    },
+    label: {
+        position: 'absolute',
+        left: '0'
+    }
+};
+
+/***/ }),
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25827,7 +25954,7 @@ var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _signStyle = __webpack_require__(123);
+var _signStyle = __webpack_require__(124);
 
 var _signStyle2 = _interopRequireDefault(_signStyle);
 
@@ -25889,7 +26016,7 @@ var Sign = function (_React$Component) {
 exports.default = (0, _radium2.default)(Sign);
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25929,6 +26056,7 @@ exports.default = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26195,6 +26323,267 @@ exports.default = {
 
 /***/ }),
 /* 127 */
+=======
+/* 125 */
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+<<<<<<< HEAD
+var _NavButton = __webpack_require__(25);
+
+var _NavButton2 = _interopRequireDefault(_NavButton);
+
+var _NavExternal = __webpack_require__(128);
+=======
+var _radium = __webpack_require__(3);
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
+
+var _radium2 = _interopRequireDefault(_radium);
+
+<<<<<<< HEAD
+var _footerStyles = __webpack_require__(129);
+=======
+var _signModalStyle = __webpack_require__(126);
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
+
+var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignModal = function (_React$Component) {
+    _inherits(SignModal, _React$Component);
+
+    function SignModal(props) {
+        _classCallCheck(this, SignModal);
+
+        var _this = _possibleConstructorReturn(this, (SignModal.__proto__ || Object.getPrototypeOf(SignModal)).call(this, props));
+
+        _this.state = {
+            display: 'none'
+        };
+        return _this;
+    }
+
+    _createClass(SignModal, [{
+        key: 'openModal',
+        value: function openModal() {
+            this.setState({ display: 'block' });
+        }
+    }, {
+        key: 'closeModal',
+        value: function closeModal() {
+            this.setState({ display: 'none' });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { style: _signModalStyle2.default.container },
+                _react2.default.createElement(
+<<<<<<< HEAD
+=======
+                    'button',
+                    { id: 'myBtn', style: _signModalStyle2.default.button, onClick: function onClick() {
+                            return _this2.openModal();
+                        } },
+                    'Open Modal'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'myModal', style: _extends({}, _signModalStyle2.default.body, { display: this.state.display }) },
+                    _react2.default.createElement(
+                        'div',
+                        { style: _extends({}, _signModalStyle2.default.content, _signModalStyle2.default[this.props.type]) },
+                        _react2.default.createElement(
+                            'span',
+                            { style: _signModalStyle2.default.close, onClick: function onClick() {
+                                    return _this2.closeModal();
+                                } },
+                            '\xD7'
+                        ),
+                        _react2.default.createElement(
+                            'h2',
+                            { style: _signModalStyle2.default.header },
+                            this.props.type === 'info' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\uD83D\uDEC8'
+                            ) : '',
+                            this.props.type === 'success' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u2713'
+                            ) : '',
+                            this.props.type === 'warning' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u26A0'
+                            ) : '',
+                            this.props.type === 'error' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\xD7'
+                            ) : '',
+                            this.props.header
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { style: _signModalStyle2.default.text },
+                            this.props.text
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SignModal;
+}(_react2.default.Component);
+
+exports.default = (0, _radium2.default)(SignModal);
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = {
+    container: {
+        backroundColor: 'Red',
+        width: '500px'
+    },
+    button: {
+        padding: '8px',
+        margin: '5px',
+        borderRadius: '4px'
+    },
+    /* The Modal (background) */
+    body: _defineProperty({
+        display: 'block', /* Hidden by default */
+        position: 'fixed', /* Stay in place */
+        zIndex: 1, /* Sit on top */
+        left: 0,
+        top: 0,
+        width: '100%', /* Full width */
+        height: '100%', /* Full height */
+        overflow: 'auto', /* Enable scroll if needed */
+        backgroundColor: 'rgb(0,0,0)' }, 'backgroundColor', 'rgba(0,0,0,0.4)'),
+    /* Modal Content/Box */
+    content: {
+        backgroundColor: '#fefefe',
+        margin: '15% auto', /* 15% from the top and centered */
+        padding: '20px',
+        border: '1px solid #888',
+        width: '80%' /* Could be more or less, depending on screen size */
+    },
+    header: {
+        fontSize: '44px',
+        marginBottom: '8px'
+    },
+    text: {
+        fontSize: '18px'
+    },
+    /* The Close Button */
+    close: {
+        color: '#aaa',
+        float: 'right',
+        fontSize: '28px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        ':focus': {
+            color: 'black',
+            textDecoration: 'none'
+        },
+        ':hover': {
+            color: 'black',
+            textDecoration: 'none'
+        }
+    },
+    info: {
+        backgroundColor: '#BDE5F8',
+        color: '#00529B'
+    },
+    success: {
+        backgroundColor: '#DFF2BF',
+        color: '#4F8A10'
+    },
+    warning: {
+        backgroundColor: '#FEEFB3',
+        color: '#9F6000'
+    },
+    error: {
+        backgroundColor: '#FFBABA',
+        color: '#D8000C'
+    },
+    icon: {
+        fontSize: '1.3em',
+        padding: '0 7px'
+    }
+};
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    content: {
+        maxWidth: '700px',
+        width: '93%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
+    },
+    section: {
+        width: '100%',
+        minWidth: '350px',
+        display: 'flex',
+        justifyContent: 'center',
+        transition: 'padding-top 0.6s ease-out',
+        paddingTop: '110px'
+    }
+
+};
+
+/***/ }),
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26214,11 +26603,11 @@ var _NavButton = __webpack_require__(25);
 
 var _NavButton2 = _interopRequireDefault(_NavButton);
 
-var _NavExternal = __webpack_require__(128);
+var _NavExternal = __webpack_require__(129);
 
 var _NavExternal2 = _interopRequireDefault(_NavExternal);
 
-var _footerStyles = __webpack_require__(129);
+var _footerStyles = __webpack_require__(130);
 
 var _footerStyles2 = _interopRequireDefault(_footerStyles);
 
@@ -26271,6 +26660,7 @@ var Footer = function (_React$Component) {
                 'footer',
                 { id: 'Contact', style: _footerStyles2.default.footer },
                 _react2.default.createElement(
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
                     'nav',
                     { style: _footerStyles2.default.menu },
                     navButtons,
@@ -26286,7 +26676,11 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
+<<<<<<< HEAD
 /* 128 */
+=======
+/* 129 */
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26353,7 +26747,11 @@ var NavExternal = function (_React$Component) {
 exports.default = (0, _radium2.default)(NavExternal);
 
 /***/ }),
+<<<<<<< HEAD
 /* 129 */
+=======
+/* 130 */
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26379,7 +26777,11 @@ exports.default = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 130 */
+=======
+/* 131 */
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26399,7 +26801,11 @@ exports.default = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 131 */
+=======
+/* 132 */
+>>>>>>> 5bfe76004cbc249f0080530184e1927d4a92168a
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
