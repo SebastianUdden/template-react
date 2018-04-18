@@ -25839,7 +25839,10 @@ var TextBox_width = function (_React$Component2) {
                 _react2.default.createElement(_Sign2.default, { type: 'success', text: 'It\'s looking really good!' }),
                 _react2.default.createElement(_Sign2.default, { type: 'warning', text: 'Under Construction' }),
                 _react2.default.createElement(_Sign2.default, { type: 'error', text: 'Too much commented code!' }),
-                _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Hi!', text: 'This is dangerous, try clicking on the X.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'info', header: 'Components', text: 'Are highly flexible, and should work in a variety of environments.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'success', header: 'Accepted', text: 'You\'ve successfully entered your credentials!' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'warning', header: 'Wait!', text: 'There are maintenance, readability and performance issues with leaving commented code. This should be deleted at once.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Oh no!', text: 'Something went wrong, go back and try again...' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
                 _react2.default.createElement(TextBox_Floating_input, null)
@@ -26109,10 +26112,29 @@ var SignModal = function (_React$Component) {
                 { style: _signModalStyle2.default.container },
                 _react2.default.createElement(
                     'button',
-                    { id: 'myBtn', style: _signModalStyle2.default.button, onClick: function onClick() {
+                    { id: 'myBtn', style: _extends({}, _signModalStyle2.default[this.props.type], _signModalStyle2.default.button), onClick: function onClick() {
                             return _this2.openModal();
                         } },
-                    'Open Modal'
+                    this.props.type === 'info' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '-1px' }) },
+                        '\uD83D\uDEC8'
+                    ) : '',
+                    this.props.type === 'success' ? _react2.default.createElement(
+                        'span',
+                        { style: _signModalStyle2.default.icon },
+                        '\u2713'
+                    ) : '',
+                    this.props.type === 'warning' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '-3px' }) },
+                        '\u26A0'
+                    ) : '',
+                    this.props.type === 'error' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '2px' }) },
+                        '\xD7'
+                    ) : ''
                 ),
                 _react2.default.createElement(
                     'div',
@@ -26187,9 +26209,11 @@ exports.default = {
         width: '500px'
     },
     button: {
-        padding: '8px',
+        display: 'inline',
         margin: '5px',
-        borderRadius: '4px'
+        borderRadius: '50%',
+        fontSize: '1.4em',
+        border: '1px solid white'
     },
     /* The Modal (background) */
     body: _defineProperty({
