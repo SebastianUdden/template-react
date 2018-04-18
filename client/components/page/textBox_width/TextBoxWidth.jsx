@@ -1,60 +1,69 @@
 import React from 'react';
 import Radium from 'radium';
 import styles from './textBox_width-style';
-import stylesLabel from './textBox_label-style.js';
+import s from './textBox_label-style.js';
 //import haha from './textBox_width.css';
 
 import Sign from '../../sign/Sign.jsx';
 import SignModal from '../../sign-modal/SignModal.jsx';
 
 class TextBox_Floating_input extends React.Component {
-    state = {
-        isFocused: false,
-      };
+    constructor(props) {
+        super(props);
 
-
-      handleFocus = () => this.setState({ isFocused: true });
-      handleBlur = () => this.setState({ isFocused: false });
-
-    render() {
-        const { label, ...props } = this.props;
-        const { isFocused } = this.state;
-        //Alt1
-        const labelStyle = {
-            position: 'absolute',
-            left: 0,
-            top: !isFocused ? 2 : -15,
-            fontSize: !isFocused ? 20 : 14,
-            color: !isFocused ? '#aaa' : '#5599ddbb',
-            transition: !isFocused ? '40': '0',
-          };
-        const textBox = {
-            height: '26px',
-            fontsize: '20px',
-            color: '#000',
-            borderStyle: 'none none solid none',
-            borderBottomWidth: '1',
-            backgroundColor: '#ECF4FB',
-            borderBottomColor: !isFocused ? '#555' :'#5599ddbb',
-            transition: !isFocused ? '40': '0',
-            outline : 'none',
+        this.state = {
+            isFocused: false,
+            clicked: false
         };
+    }
 
-          //Alt2 //FUNKAR INTE!!!!
-        //   const alexTest = stylesLabel.label
-        //   top: !isFocused ? 2: -15;
-        //   fontSize: !isFocused ? 20 : 14;
-        //   color: !isFocused ? '#aaa' : '#000';
-        //   ;
+    setFocus(boolean) {
+        if (this.state.clicked || document.getElementById('input-' + this.props.label).value !== '') {
+            this.setState({isFocused: true})        
+        } else {
+            this.setState({isFocused: boolean})     
+        }
+    }
 
-        return (
-            <div style={stylesLabel.container} /*onMouseOut={this.handleBlur}*/>
-            <label style={labelStyle}>Email</label>
-            <input type="text" style={textBox} onFocus={this.handleFocus}
-            onBlur={this.handleBlur} /*onMouseOver={this.handleFocus}*/ > 
-            </input>
+    setClicked(boolean) {
+        this.setState({clicked: boolean});
+    }
+
+    blur() {        
+        this.setClicked(false);
+        if (document.getElementById('input-' + this.props.label).value !== '') {
+            this.setState({isFocused: true});
+        } else {
+            this.setState({isFocused: false});
+        }
+    }
+
+    render() {        
+        return (            
+            <div style={s.container}>
+                <label                
+                    onMouseOver={(boolean) => this.setFocus(true)}
+                    style={{
+                        ...s.label,
+                        top: this.state.isFocused ? -15: 1,
+                        fontSize: this.state.isFocused ? 14 : 20,
+                        color: this.state.isFocused ? this.props.dynamicColor : this.props.labelColor,
+                        transition: 'top 0.3s ease-out, font-size 0.3s ease-out, color 0.4s ease-out'
+                    }}>{this.props.label}</label>
+                <input 
+                    id={'input-' + this.props.label}
+                    type="text" 
+                    style={{
+                        ...s.textbox,
+                        color: this.state.isFocused ? this.props.borderBottomColor : this.props.dynamicColor,
+                        borderBottomColor: this.state.isFocused ? this.props.dynamicColor : this.props.borderBottomColor
+                    }} 
+                    onClick={() => this.setClicked(true)}
+                    onBlur={() => this.blur()}
+                    onMouseOver={(boolean) => this.setFocus(true)}
+                    onMouseOut={(boolean) => this.setFocus(false)}
+                /> 
             </div>
-
         );
     }
 }
@@ -127,6 +136,11 @@ class TextBox_width extends React.Component {
     }
 
     render() {
+        let dynamicColor = '#5599ddbb';
+        let borderBottomColor = '#888';
+        let labelColor = '#aaa';
+        let label = 'Firstname';
+        let label2 = 'Lastname';
         return (
             <div style={styles.container} id="outerDiv">
                 <Sign type="info" text="This will soon be finished" />
@@ -142,7 +156,17 @@ class TextBox_width extends React.Component {
                 <span id="hide_span"></span>
                 <input type="text" id="txt_box" style={styles.textBox} placeholder="Try me out!" />
 
-                <TextBox_Floating_input/>
+                <TextBox_Floating_input 
+                    label={label}
+                    dynamicColor={dynamicColor} 
+                    borderBottomColor={borderBottomColor}
+                    labelColor={labelColor} />
+
+                <TextBox_Floating_input 
+                    label={label2}
+                    dynamicColor={dynamicColor} 
+                    borderBottomColor={borderBottomColor}
+                    labelColor={labelColor} />
 
 
             </div>

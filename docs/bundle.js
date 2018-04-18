@@ -20062,15 +20062,15 @@ var _Content = __webpack_require__(111);
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Footer = __webpack_require__(128);
+var _Footer = __webpack_require__(127);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _pageStyles = __webpack_require__(131);
+var _pageStyles = __webpack_require__(130);
 
 var _pageStyles2 = _interopRequireDefault(_pageStyles);
 
-var _pageData = __webpack_require__(132);
+var _pageData = __webpack_require__(131);
 
 var _pageData2 = _interopRequireDefault(_pageData);
 
@@ -24922,7 +24922,7 @@ var _Articles = __webpack_require__(112);
 
 var _Articles2 = _interopRequireDefault(_Articles);
 
-var _contentStyles = __webpack_require__(127);
+var _contentStyles = __webpack_require__(126);
 
 var _contentStyles2 = _interopRequireDefault(_contentStyles);
 
@@ -25641,6 +25641,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -25655,21 +25657,19 @@ var _textBox_widthStyle = __webpack_require__(121);
 
 var _textBox_widthStyle2 = _interopRequireDefault(_textBox_widthStyle);
 
-var _textBox_labelStyle = __webpack_require__(122);
+var _textBox_labelStyle = __webpack_require__(132);
 
 var _textBox_labelStyle2 = _interopRequireDefault(_textBox_labelStyle);
 
-var _Sign = __webpack_require__(123);
+var _Sign = __webpack_require__(122);
 
 var _Sign2 = _interopRequireDefault(_Sign);
 
-var _SignModal = __webpack_require__(125);
+var _SignModal = __webpack_require__(124);
 
 var _SignModal2 = _interopRequireDefault(_SignModal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25681,73 +25681,84 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TextBox_Floating_input = function (_React$Component) {
     _inherits(TextBox_Floating_input, _React$Component);
 
-    function TextBox_Floating_input() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
+    function TextBox_Floating_input(props) {
         _classCallCheck(this, TextBox_Floating_input);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = _possibleConstructorReturn(this, (TextBox_Floating_input.__proto__ || Object.getPrototypeOf(TextBox_Floating_input)).call(this, props));
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TextBox_Floating_input.__proto__ || Object.getPrototypeOf(TextBox_Floating_input)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            isFocused: false
-        }, _this.handleFocus = function () {
-            return _this.setState({ isFocused: true });
-        }, _this.handleBlur = function () {
-            return _this.setState({ isFocused: false });
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        _this.state = {
+            isFocused: false,
+            clicked: false
+        };
+        return _this;
     }
 
     _createClass(TextBox_Floating_input, [{
+        key: 'setFocus',
+        value: function setFocus(boolean) {
+            if (this.state.clicked || document.getElementById('input-' + this.props.label).value !== '') {
+                this.setState({ isFocused: true });
+            } else {
+                this.setState({ isFocused: boolean });
+            }
+        }
+    }, {
+        key: 'setClicked',
+        value: function setClicked(boolean) {
+            this.setState({ clicked: boolean });
+        }
+    }, {
+        key: 'blur',
+        value: function blur() {
+            this.setClicked(false);
+            if (document.getElementById('input-' + this.props.label).value !== '') {
+                this.setState({ isFocused: true });
+            } else {
+                this.setState({ isFocused: false });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _props = this.props,
-                label = _props.label,
-                props = _objectWithoutProperties(_props, ['label']);
-
-            var isFocused = this.state.isFocused;
-            //Alt1
-
-            var labelStyle = {
-                position: 'absolute',
-                left: 0,
-                top: !isFocused ? 2 : -15,
-                fontSize: !isFocused ? 20 : 14,
-                color: !isFocused ? '#aaa' : '#5599ddbb',
-                transition: !isFocused ? '40' : '0'
-            };
-            var textBox = {
-                height: '26px',
-                fontsize: '20px',
-                color: '#000',
-                borderStyle: 'none none solid none',
-                borderBottomWidth: '1',
-                backgroundColor: '#ECF4FB',
-                borderBottomColor: !isFocused ? '#555' : '#5599ddbb',
-                transition: !isFocused ? '40' : '0',
-                outline: 'none'
-            };
-
-            //Alt2 //FUNKAR INTE!!!!
-            //   const alexTest = stylesLabel.label
-            //   top: !isFocused ? 2: -15;
-            //   fontSize: !isFocused ? 20 : 14;
-            //   color: !isFocused ? '#aaa' : '#000';
-            //   ;
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
-                { style: _textBox_labelStyle2.default.container /*onMouseOut={this.handleBlur}*/ },
+                { style: _textBox_labelStyle2.default.container },
                 _react2.default.createElement(
                     'label',
-                    { style: labelStyle },
-                    'Email'
+                    {
+                        onMouseOver: function onMouseOver(boolean) {
+                            return _this2.setFocus(true);
+                        },
+                        style: _extends({}, _textBox_labelStyle2.default.label, {
+                            top: this.state.isFocused ? -15 : 1,
+                            fontSize: this.state.isFocused ? 14 : 20,
+                            color: this.state.isFocused ? this.props.dynamicColor : this.props.labelColor,
+                            transition: 'top 0.3s ease-out, font-size 0.3s ease-out, color 0.4s ease-out'
+                        }) },
+                    this.props.label
                 ),
-                _react2.default.createElement('input', { type: 'text', style: textBox, onFocus: this.handleFocus,
-                    onBlur: this.handleBlur /*onMouseOver={this.handleFocus}*/ })
+                _react2.default.createElement('input', {
+                    id: 'input-' + this.props.label,
+                    type: 'text',
+                    style: _extends({}, _textBox_labelStyle2.default.textbox, {
+                        color: this.state.isFocused ? this.props.borderBottomColor : this.props.dynamicColor,
+                        borderBottomColor: this.state.isFocused ? this.props.dynamicColor : this.props.borderBottomColor
+                    }),
+                    onClick: function onClick() {
+                        return _this2.setClicked(true);
+                    },
+                    onBlur: function onBlur() {
+                        return _this2.blur();
+                    },
+                    onMouseOver: function onMouseOver(boolean) {
+                        return _this2.setFocus(true);
+                    },
+                    onMouseOut: function onMouseOut(boolean) {
+                        return _this2.setFocus(false);
+                    }
+                })
             );
         }
     }]);
@@ -25832,6 +25843,11 @@ var TextBox_width = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
+            var dynamicColor = '#5599ddbb';
+            var borderBottomColor = '#888';
+            var labelColor = '#aaa';
+            var label = 'Firstname';
+            var label2 = 'Lastname';
             return _react2.default.createElement(
                 'div',
                 { style: _textBox_widthStyle2.default.container, id: 'outerDiv' },
@@ -25845,7 +25861,16 @@ var TextBox_width = function (_React$Component2) {
                 _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Oh no!', text: 'Something went wrong, go back and try again...' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
-                _react2.default.createElement(TextBox_Floating_input, null)
+                _react2.default.createElement(TextBox_Floating_input, {
+                    label: label,
+                    dynamicColor: dynamicColor,
+                    borderBottomColor: borderBottomColor,
+                    labelColor: labelColor }),
+                _react2.default.createElement(TextBox_Floating_input, {
+                    label: label2,
+                    dynamicColor: dynamicColor,
+                    borderBottomColor: borderBottomColor,
+                    labelColor: labelColor })
             );
         }
     }]);
@@ -25867,8 +25892,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     container: {
-        width: '100%',
-        border: '1px solid red'
+        width: '100%'
+        // border: '1px solid red',
     },
     textBox: {
         width: '50%',
@@ -25897,38 +25922,6 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = {
-    container: {
-        width: '100%',
-        paddingBottom: '18px',
-        position: 'relative'
-    },
-    textbox: {
-        height: '26px',
-        fontsize: '20px',
-        color: '#000',
-        borderStyle: 'none none solid none',
-        borderBottomWidth: '1',
-        borderBottomColor: '#555',
-        outline: 'none'
-
-    },
-    label: {
-        position: 'absolute',
-        left: '0'
-    }
-};
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -25942,7 +25935,7 @@ var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _signStyle = __webpack_require__(124);
+var _signStyle = __webpack_require__(123);
 
 var _signStyle2 = _interopRequireDefault(_signStyle);
 
@@ -26004,7 +25997,7 @@ var Sign = function (_React$Component) {
 exports.default = (0, _radium2.default)(Sign);
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26044,7 +26037,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26066,7 +26059,7 @@ var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _signModalStyle = __webpack_require__(126);
+var _signModalStyle = __webpack_require__(125);
 
 var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
 
@@ -26191,7 +26184,7 @@ var SignModal = function (_React$Component) {
 exports.default = (0, _radium2.default)(SignModal);
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26280,7 +26273,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26309,7 +26302,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26329,11 +26322,11 @@ var _NavButton = __webpack_require__(25);
 
 var _NavButton2 = _interopRequireDefault(_NavButton);
 
-var _NavExternal = __webpack_require__(129);
+var _NavExternal = __webpack_require__(128);
 
 var _NavExternal2 = _interopRequireDefault(_NavExternal);
 
-var _footerStyles = __webpack_require__(130);
+var _footerStyles = __webpack_require__(129);
 
 var _footerStyles2 = _interopRequireDefault(_footerStyles);
 
@@ -26401,7 +26394,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26468,7 +26461,7 @@ var NavExternal = function (_React$Component) {
 exports.default = (0, _radium2.default)(NavExternal);
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26494,7 +26487,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26514,7 +26507,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26592,6 +26585,38 @@ exports.default = {
     externalRef: {
         name: 'Sebastian Uddén',
         uri: 'https://github.com/SebastianUdden'
+    }
+};
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    container: {
+        width: '100%',
+        paddingBottom: '18px',
+        position: 'relative',
+        marginBottom: '10px'
+    },
+    textbox: {
+        backgroundColor: '#ECF4FB',
+        height: '26px',
+        fontsize: '20px',
+        borderStyle: 'none none solid none',
+        borderBottomWidth: '1',
+        borderBottomColor: '#555',
+        outline: 'none'
+    },
+    label: {
+        position: 'absolute',
+        left: '0'
     }
 };
 
