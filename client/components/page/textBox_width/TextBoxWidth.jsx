@@ -81,7 +81,10 @@ class TextBox_width extends React.Component {
                 <Sign type="warning" text="Under Construction" />
                 <Sign type="error" text="Too much commented code!" />
 
-                <SignModal type="error" header="Hi!" text="This is dangerous, try clicking on the X." />
+                <SignModal type="info" header="Components" text="Are highly flexible, and should work in a variety of environments." />
+                <SignModal type="success" header="Accepted" text="You've successfully entered your credentials!" />
+                <SignModal type="warning" header="Wait!" text="There are maintenance, readability and performance issues with leaving commented code. This should be deleted at once." />
+                <SignModal type="error" header="Oh no!" text="Something went wrong, go back and try again..." />
 
                 <span id="hide_span"></span>
                 <input type="text" id="txt_box" style={styles.textBox} placeholder="Try me out!" />

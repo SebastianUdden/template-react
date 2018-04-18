@@ -4,9 +4,11 @@ export default {
         width: '500px'
     },
     button: {
-        padding: '8px',
-        margin: '5px',
-        borderRadius: '4px'
+        display: 'inline',
+        margin: '5px',        
+        borderRadius: '50%',
+        fontSize: '1.4em',
+        border: '1px solid white'
     },
     /* The Modal (background) */
     body: {

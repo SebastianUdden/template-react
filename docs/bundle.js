@@ -289,48 +289,6 @@ module.exports = exports["default"];
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-
-/***/ }),
-/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -384,6 +342,48 @@ if (process.env.NODE_ENV !== 'production') {
 // ESM re-exports
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
 
 /***/ }),
 /* 5 */
@@ -599,7 +599,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1081,7 +1081,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -1250,7 +1250,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -1524,7 +1524,7 @@ var _navButtonStyles = __webpack_require__(13);
 
 var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -2708,7 +2708,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(6),n=__webpack_require__(8),p=__webpack_require__(3),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(6),n=__webpack_require__(8),p=__webpack_require__(4),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -2748,7 +2748,7 @@ var _assign = __webpack_require__(6);
 var emptyObject = __webpack_require__(8);
 var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(11);
 
 // TODO: this is special because it gets imported during build.
@@ -4150,7 +4150,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),l=__webpack_require__(19),B=__webpack_require__(6),C=__webpack_require__(3),ba=__webpack_require__(20),da=__webpack_require__(21),ea=__webpack_require__(22),fa=__webpack_require__(23),ia=__webpack_require__(24),D=__webpack_require__(8);
+var aa=__webpack_require__(0),l=__webpack_require__(19),B=__webpack_require__(6),C=__webpack_require__(4),ba=__webpack_require__(20),da=__webpack_require__(21),ea=__webpack_require__(22),fa=__webpack_require__(23),ia=__webpack_require__(24),D=__webpack_require__(8);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -4452,7 +4452,7 @@ var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
 var ExecutionEnvironment = __webpack_require__(19);
 var _assign = __webpack_require__(6);
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var EventListener = __webpack_require__(20);
 var getActiveElement = __webpack_require__(21);
 var shallowEqual = __webpack_require__(22);
@@ -20062,15 +20062,15 @@ var _Content = __webpack_require__(111);
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Footer = __webpack_require__(125);
+var _Footer = __webpack_require__(127);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _pageStyles = __webpack_require__(128);
+var _pageStyles = __webpack_require__(130);
 
 var _pageStyles2 = _interopRequireDefault(_pageStyles);
 
-var _pageData = __webpack_require__(129);
+var _pageData = __webpack_require__(131);
 
 var _pageData2 = _interopRequireDefault(_pageData);
 
@@ -20363,7 +20363,7 @@ exports.default = Header;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
 var assign = __webpack_require__(6);
@@ -20913,7 +20913,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 var invariant = __webpack_require__(7);
 var ReactPropTypesSecret = __webpack_require__(12);
 
@@ -24845,7 +24845,7 @@ var _navButtonStyles = __webpack_require__(13);
 
 var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -24922,7 +24922,7 @@ var _Articles = __webpack_require__(112);
 
 var _Articles2 = _interopRequireDefault(_Articles);
 
-var _contentStyles = __webpack_require__(124);
+var _contentStyles = __webpack_require__(126);
 
 var _contentStyles2 = _interopRequireDefault(_contentStyles);
 
@@ -25233,7 +25233,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25479,7 +25479,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25647,7 +25647,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25659,7 +25659,7 @@ var _Sign = __webpack_require__(122);
 
 var _Sign2 = _interopRequireDefault(_Sign);
 
-var _SignModal = __webpack_require__(130);
+var _SignModal = __webpack_require__(124);
 
 var _SignModal2 = _interopRequireDefault(_SignModal);
 
@@ -25754,7 +25754,10 @@ var TextBox_width = function (_React$Component) {
                 _react2.default.createElement(_Sign2.default, { type: 'success', text: 'It\'s looking really good!' }),
                 _react2.default.createElement(_Sign2.default, { type: 'warning', text: 'Under Construction' }),
                 _react2.default.createElement(_Sign2.default, { type: 'error', text: 'Too much commented code!' }),
-                _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Hi!', text: 'This is dangerous, try clicking on the X.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'info', header: 'Components', text: 'Are highly flexible, and should work in a variety of environments.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'success', header: 'Accepted', text: 'You\'ve successfully entered your credentials!' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'warning', header: 'Wait!', text: 'There are maintenance, readability and performance issues with leaving commented code. This should be deleted at once.' }),
+                _react2.default.createElement(_SignModal2.default, { type: 'error', header: 'Oh no!', text: 'Something went wrong, go back and try again...' }),
                 _react2.default.createElement('span', { id: 'hide_span' }),
                 _react2.default.createElement('input', { type: 'text', id: 'txt_box', style: _textBox_widthStyle2.default.textBox, placeholder: 'Try me out!' }),
                 _react2.default.createElement('input', { type: 'text', styles: _textBox_widthStyle2.default.testInput, placeholder: 'Try me out!' })
@@ -25820,7 +25823,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -25935,6 +25938,242 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _radium = __webpack_require__(3);
+
+var _radium2 = _interopRequireDefault(_radium);
+
+var _signModalStyle = __webpack_require__(125);
+
+var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignModal = function (_React$Component) {
+    _inherits(SignModal, _React$Component);
+
+    function SignModal(props) {
+        _classCallCheck(this, SignModal);
+
+        var _this = _possibleConstructorReturn(this, (SignModal.__proto__ || Object.getPrototypeOf(SignModal)).call(this, props));
+
+        _this.state = {
+            display: 'none'
+        };
+        return _this;
+    }
+
+    _createClass(SignModal, [{
+        key: 'openModal',
+        value: function openModal() {
+            this.setState({ display: 'block' });
+        }
+    }, {
+        key: 'closeModal',
+        value: function closeModal() {
+            this.setState({ display: 'none' });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { style: _signModalStyle2.default.container },
+                _react2.default.createElement(
+                    'button',
+                    { id: 'myBtn', style: _extends({}, _signModalStyle2.default[this.props.type], _signModalStyle2.default.button), onClick: function onClick() {
+                            return _this2.openModal();
+                        } },
+                    this.props.type === 'info' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '-1px' }) },
+                        '\uD83D\uDEC8'
+                    ) : '',
+                    this.props.type === 'success' ? _react2.default.createElement(
+                        'span',
+                        { style: _signModalStyle2.default.icon },
+                        '\u2713'
+                    ) : '',
+                    this.props.type === 'warning' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '-3px' }) },
+                        '\u26A0'
+                    ) : '',
+                    this.props.type === 'error' ? _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '2px' }) },
+                        '\xD7'
+                    ) : ''
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'myModal', style: _extends({}, _signModalStyle2.default.body, { display: this.state.display }) },
+                    _react2.default.createElement(
+                        'div',
+                        { style: _extends({}, _signModalStyle2.default.content, _signModalStyle2.default[this.props.type]) },
+                        _react2.default.createElement(
+                            'span',
+                            { style: _signModalStyle2.default.close, onClick: function onClick() {
+                                    return _this2.closeModal();
+                                } },
+                            '\xD7'
+                        ),
+                        _react2.default.createElement(
+                            'h2',
+                            { style: _signModalStyle2.default.header },
+                            this.props.type === 'info' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\uD83D\uDEC8'
+                            ) : '',
+                            this.props.type === 'success' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u2713'
+                            ) : '',
+                            this.props.type === 'warning' ? _react2.default.createElement(
+                                'span',
+                                { style: _signModalStyle2.default.icon },
+                                '\u26A0'
+                            ) : '',
+                            this.props.type === 'error' ? _react2.default.createElement(
+                                'span',
+                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
+                                '\xD7'
+                            ) : '',
+                            this.props.header
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { style: _signModalStyle2.default.text },
+                            this.props.text
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SignModal;
+}(_react2.default.Component);
+
+exports.default = (0, _radium2.default)(SignModal);
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = {
+    container: {
+        backroundColor: 'Red',
+        width: '500px'
+    },
+    button: {
+        display: 'inline',
+        margin: '5px',
+        borderRadius: '50%',
+        fontSize: '1.4em',
+        border: '1px solid white'
+    },
+    /* The Modal (background) */
+    body: _defineProperty({
+        display: 'block', /* Hidden by default */
+        position: 'fixed', /* Stay in place */
+        zIndex: 1, /* Sit on top */
+        left: 0,
+        top: 0,
+        width: '100%', /* Full width */
+        height: '100%', /* Full height */
+        overflow: 'auto', /* Enable scroll if needed */
+        backgroundColor: 'rgb(0,0,0)' }, 'backgroundColor', 'rgba(0,0,0,0.4)'),
+    /* Modal Content/Box */
+    content: {
+        backgroundColor: '#fefefe',
+        margin: '15% auto', /* 15% from the top and centered */
+        padding: '20px',
+        border: '1px solid #888',
+        width: '80%' /* Could be more or less, depending on screen size */
+    },
+    header: {
+        fontSize: '44px',
+        marginBottom: '8px'
+    },
+    text: {
+        fontSize: '18px'
+    },
+    /* The Close Button */
+    close: {
+        color: '#aaa',
+        float: 'right',
+        fontSize: '28px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        ':focus': {
+            color: 'black',
+            textDecoration: 'none'
+        },
+        ':hover': {
+            color: 'black',
+            textDecoration: 'none'
+        }
+    },
+    info: {
+        backgroundColor: '#BDE5F8',
+        color: '#00529B'
+    },
+    success: {
+        backgroundColor: '#DFF2BF',
+        color: '#4F8A10'
+    },
+    warning: {
+        backgroundColor: '#FEEFB3',
+        color: '#9F6000'
+    },
+    error: {
+        backgroundColor: '#FFBABA',
+        color: '#D8000C'
+    },
+    icon: {
+        fontSize: '1.3em',
+        padding: '0 7px'
+    }
+};
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.default = {
     content: {
         maxWidth: '700px',
@@ -25955,7 +26194,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 125 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25975,11 +26214,11 @@ var _NavButton = __webpack_require__(25);
 
 var _NavButton2 = _interopRequireDefault(_NavButton);
 
-var _NavExternal = __webpack_require__(126);
+var _NavExternal = __webpack_require__(128);
 
 var _NavExternal2 = _interopRequireDefault(_NavExternal);
 
-var _footerStyles = __webpack_require__(127);
+var _footerStyles = __webpack_require__(129);
 
 var _footerStyles2 = _interopRequireDefault(_footerStyles);
 
@@ -26047,7 +26286,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 126 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26067,7 +26306,7 @@ var _navButtonStyles = __webpack_require__(13);
 
 var _navButtonStyles2 = _interopRequireDefault(_navButtonStyles);
 
-var _radium = __webpack_require__(4);
+var _radium = __webpack_require__(3);
 
 var _radium2 = _interopRequireDefault(_radium);
 
@@ -26114,7 +26353,7 @@ var NavExternal = function (_React$Component) {
 exports.default = (0, _radium2.default)(NavExternal);
 
 /***/ }),
-/* 127 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26140,7 +26379,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 128 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26160,7 +26399,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 129 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26238,221 +26477,6 @@ exports.default = {
     externalRef: {
         name: 'Sebastian Uddén',
         uri: 'https://github.com/SebastianUdden'
-    }
-};
-
-/***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _radium = __webpack_require__(4);
-
-var _radium2 = _interopRequireDefault(_radium);
-
-var _signModalStyle = __webpack_require__(131);
-
-var _signModalStyle2 = _interopRequireDefault(_signModalStyle);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SignModal = function (_React$Component) {
-    _inherits(SignModal, _React$Component);
-
-    function SignModal(props) {
-        _classCallCheck(this, SignModal);
-
-        var _this = _possibleConstructorReturn(this, (SignModal.__proto__ || Object.getPrototypeOf(SignModal)).call(this, props));
-
-        _this.state = {
-            display: 'none'
-        };
-        return _this;
-    }
-
-    _createClass(SignModal, [{
-        key: 'openModal',
-        value: function openModal() {
-            this.setState({ display: 'block' });
-        }
-    }, {
-        key: 'closeModal',
-        value: function closeModal() {
-            this.setState({ display: 'none' });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'div',
-                { style: _signModalStyle2.default.container },
-                _react2.default.createElement(
-                    'button',
-                    { id: 'myBtn', style: _signModalStyle2.default.button, onClick: function onClick() {
-                            return _this2.openModal();
-                        } },
-                    'Open Modal'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'myModal', style: _extends({}, _signModalStyle2.default.body, { display: this.state.display }) },
-                    _react2.default.createElement(
-                        'div',
-                        { style: _extends({}, _signModalStyle2.default.content, _signModalStyle2.default[this.props.type]) },
-                        _react2.default.createElement(
-                            'span',
-                            { style: _signModalStyle2.default.close, onClick: function onClick() {
-                                    return _this2.closeModal();
-                                } },
-                            '\xD7'
-                        ),
-                        _react2.default.createElement(
-                            'h2',
-                            { style: _signModalStyle2.default.header },
-                            this.props.type === 'info' ? _react2.default.createElement(
-                                'span',
-                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
-                                '\uD83D\uDEC8'
-                            ) : '',
-                            this.props.type === 'success' ? _react2.default.createElement(
-                                'span',
-                                { style: _signModalStyle2.default.icon },
-                                '\u2713'
-                            ) : '',
-                            this.props.type === 'warning' ? _react2.default.createElement(
-                                'span',
-                                { style: _signModalStyle2.default.icon },
-                                '\u26A0'
-                            ) : '',
-                            this.props.type === 'error' ? _react2.default.createElement(
-                                'span',
-                                { style: _extends({}, _signModalStyle2.default.icon, { position: 'relative', top: '4px' }) },
-                                '\xD7'
-                            ) : '',
-                            this.props.header
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { style: _signModalStyle2.default.text },
-                            this.props.text
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return SignModal;
-}(_react2.default.Component);
-
-exports.default = (0, _radium2.default)(SignModal);
-
-/***/ }),
-/* 131 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = {
-    container: {
-        backroundColor: 'Red',
-        width: '500px'
-    },
-    button: {
-        padding: '8px',
-        margin: '5px',
-        borderRadius: '4px'
-    },
-    /* The Modal (background) */
-    body: _defineProperty({
-        display: 'block', /* Hidden by default */
-        position: 'fixed', /* Stay in place */
-        zIndex: 1, /* Sit on top */
-        left: 0,
-        top: 0,
-        width: '100%', /* Full width */
-        height: '100%', /* Full height */
-        overflow: 'auto', /* Enable scroll if needed */
-        backgroundColor: 'rgb(0,0,0)' }, 'backgroundColor', 'rgba(0,0,0,0.4)'),
-    /* Modal Content/Box */
-    content: {
-        backgroundColor: '#fefefe',
-        margin: '15% auto', /* 15% from the top and centered */
-        padding: '20px',
-        border: '1px solid #888',
-        width: '80%' /* Could be more or less, depending on screen size */
-    },
-    header: {
-        fontSize: '44px',
-        marginBottom: '8px'
-    },
-    text: {
-        fontSize: '18px'
-    },
-    /* The Close Button */
-    close: {
-        color: '#aaa',
-        float: 'right',
-        fontSize: '28px',
-        fontWeight: 'bold',
-        cursor: 'pointer',
-        ':focus': {
-            color: 'black',
-            textDecoration: 'none'
-        },
-        ':hover': {
-            color: 'black',
-            textDecoration: 'none'
-        }
-    },
-    info: {
-        backgroundColor: '#BDE5F8',
-        color: '#00529B'
-    },
-    success: {
-        backgroundColor: '#DFF2BF',
-        color: '#4F8A10'
-    },
-    warning: {
-        backgroundColor: '#FEEFB3',
-        color: '#9F6000'
-    },
-    error: {
-        backgroundColor: '#FFBABA',
-        color: '#D8000C'
-    },
-    icon: {
-        fontSize: '1.3em',
-        padding: '0 7px'
     }
 };
 
