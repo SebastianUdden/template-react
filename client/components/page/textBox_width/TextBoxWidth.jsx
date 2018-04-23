@@ -49,7 +49,7 @@ class TextBox_Floating_input extends React.Component {
                         fontSize: this.state.isFocused ? 14 : 20,
                         color: this.state.isFocused ? this.props.dynamicColor : this.props.labelColor,
                         transition: 'top 0.3s ease-out, font-size 0.3s ease-out, color 0.4s ease-out'
-                    }}>{this.props.label} </label>
+                    }}>{this.props.label}</label>
                 <input 
                     id={'input-' + this.props.label}
                     type="text" 

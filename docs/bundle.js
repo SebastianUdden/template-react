@@ -25737,8 +25737,7 @@ var TextBox_Floating_input = function (_React$Component) {
                             color: this.state.isFocused ? this.props.dynamicColor : this.props.labelColor,
                             transition: 'top 0.3s ease-out, font-size 0.3s ease-out, color 0.4s ease-out'
                         }) },
-                    this.props.label,
-                    ' '
+                    this.props.label
                 ),
                 _react2.default.createElement('input', {
                     id: 'input-' + this.props.label,
